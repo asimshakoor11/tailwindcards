@@ -1,0 +1,1998 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cards</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" />
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer> </script>
+    <link rel="stylesheet" href="assests/output.css">
+</head>
+
+<body>
+    <div class="overflow-hidden rounded-[0.5rem] border dark:border-darkborder shadow-md md:shadow-xl font-GeistSans bg-lightbackground dark:bg-darkbackground">
+        
+        <div class="fixed z-50 top-9 right-9 inline-flex items-center justify-center whitespace-nowrap ">
+            <div class="relative rounded-md text-sm  border dark:border-darkborder border-input dark:border-darkborder dark:border-darkborder bg-lightbackground dark:bg-darkbackground z-50">
+                <div class="dropbtn hover:cursor-pointer p-2" onclick="themedropdown()">
+                    <svg width="20" height="20" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        id="sunsvg"
+                        class="dropbtn pointer-events-none text-card-foreground dark:text-darktext h-[1.2rem] w-[1.2rem]  rotate-0 scale-100 ">
+                        <path  
+                            d="M7.5 0C7.77614 0 8 0.223858 8 0.5V2.5C8 2.77614 7.77614 3 7.5 3C7.22386 3 7 2.77614 7 2.5V0.5C7 0.223858 7.22386 0 7.5 0ZM2.1967 2.1967C2.39196 2.00144 2.70854 2.00144 2.90381 2.1967L4.31802 3.61091C4.51328 3.80617 4.51328 4.12276 4.31802 4.31802C4.12276 4.51328 3.80617 4.51328 3.61091 4.31802L2.1967 2.90381C2.00144 2.70854 2.00144 2.39196 2.1967 2.1967ZM0.5 7C0.223858 7 0 7.22386 0 7.5C0 7.77614 0.223858 8 0.5 8H2.5C2.77614 8 3 7.77614 3 7.5C3 7.22386 2.77614 7 2.5 7H0.5ZM2.1967 12.8033C2.00144 12.608 2.00144 12.2915 2.1967 12.0962L3.61091 10.682C3.80617 10.4867 4.12276 10.4867 4.31802 10.682C4.51328 10.8772 4.51328 11.1938 4.31802 11.3891L2.90381 12.8033C2.70854 12.9986 2.39196 12.9986 2.1967 12.8033ZM12.5 7C12.2239 7 12 7.22386 12 7.5C12 7.77614 12.2239 8 12.5 8H14.5C14.7761 8 15 7.77614 15 7.5C15 7.22386 14.7761 7 14.5 7H12.5ZM10.682 4.31802C10.4867 4.12276 10.4867 3.80617 10.682 3.61091L12.0962 2.1967C12.2915 2.00144 12.608 2.00144 12.8033 2.1967C12.9986 2.39196 12.9986 2.70854 12.8033 2.90381L11.3891 4.31802C11.1938 4.51328 10.8772 4.51328 10.682 4.31802ZM8 12.5C8 12.2239 7.77614 12 7.5 12C7.22386 12 7 12.2239 7 12.5V14.5C7 14.7761 7.22386 15 7.5 15C7.77614 15 8 14.7761 8 14.5V12.5ZM10.682 10.682C10.8772 10.4867 11.1938 10.4867 11.3891 10.682L12.8033 12.0962C12.9986 12.2915 12.9986 12.608 12.8033 12.8033C12.608 12.9986 12.2915 12.9986 12.0962 12.8033L10.682 11.3891C10.4867 11.1938 10.4867 10.8772 10.682 10.682ZM5.5 7.5C5.5 6.39543 6.39543 5.5 7.5 5.5C8.60457 5.5 9.5 6.39543 9.5 7.5C9.5 8.60457 8.60457 9.5 7.5 9.5C6.39543 9.5 5.5 8.60457 5.5 7.5ZM7.5 4.5C5.84315 4.5 4.5 5.84315 4.5 7.5C4.5 9.15685 5.84315 10.5 7.5 10.5C9.15685 10.5 10.5 9.15685 10.5 7.5C10.5 5.84315 9.15685 4.5 7.5 4.5Z"
+                            fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path>
+                    </svg>
+                    <svg width="20" height="20" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        id="moonsvg"
+                        class="dropbtn hidden pointer-events-none h-[1.2rem] w-[1.2rem] text-card-foreground dark:text-darktext  rotate-0 scale-100 ">
+                        <path
+                            d="M2.89998 0.499976C2.89998 0.279062 2.72089 0.0999756 2.49998 0.0999756C2.27906 0.0999756 2.09998 0.279062 2.09998 0.499976V1.09998H1.49998C1.27906 1.09998 1.09998 1.27906 1.09998 1.49998C1.09998 1.72089 1.27906 1.89998 1.49998 1.89998H2.09998V2.49998C2.09998 2.72089 2.27906 2.89998 2.49998 2.89998C2.72089 2.89998 2.89998 2.72089 2.89998 2.49998V1.89998H3.49998C3.72089 1.89998 3.89998 1.72089 3.89998 1.49998C3.89998 1.27906 3.72089 1.09998 3.49998 1.09998H2.89998V0.499976ZM5.89998 3.49998C5.89998 3.27906 5.72089 3.09998 5.49998 3.09998C5.27906 3.09998 5.09998 3.27906 5.09998 3.49998V4.09998H4.49998C4.27906 4.09998 4.09998 4.27906 4.09998 4.49998C4.09998 4.72089 4.27906 4.89998 4.49998 4.89998H5.09998V5.49998C5.09998 5.72089 5.27906 5.89998 5.49998 5.89998C5.72089 5.89998 5.89998 5.72089 5.89998 5.49998V4.89998H6.49998C6.72089 4.89998 6.89998 4.72089 6.89998 4.49998C6.89998 4.27906 6.72089 4.09998 6.49998 4.09998H5.89998V3.49998ZM1.89998 6.49998C1.89998 6.27906 1.72089 6.09998 1.49998 6.09998C1.27906 6.09998 1.09998 6.27906 1.09998 6.49998V7.09998H0.499976C0.279062 7.09998 0.0999756 7.27906 0.0999756 7.49998C0.0999756 7.72089 0.279062 7.89998 0.499976 7.89998H1.09998V8.49998C1.09998 8.72089 1.27906 8.89997 1.49998 8.89997C1.72089 8.89997 1.89998 8.72089 1.89998 8.49998V7.89998H2.49998C2.72089 7.89998 2.89998 7.72089 2.89998 7.49998C2.89998 7.27906 2.72089 7.09998 2.49998 7.09998H1.89998V6.49998ZM8.54406 0.98184L8.24618 0.941586C8.03275 0.917676 7.90692 1.1655 8.02936 1.34194C8.17013 1.54479 8.29981 1.75592 8.41754 1.97445C8.91878 2.90485 9.20322 3.96932 9.20322 5.10022C9.20322 8.37201 6.82247 11.0878 3.69887 11.6097C3.45736 11.65 3.20988 11.6772 2.96008 11.6906C2.74563 11.702 2.62729 11.9535 2.77721 12.1072C2.84551 12.1773 2.91535 12.2458 2.98667 12.3128L3.05883 12.3795L3.31883 12.6045L3.50684 12.7532L3.62796 12.8433L3.81491 12.9742L3.99079 13.089C4.11175 13.1651 4.23536 13.2375 4.36157 13.3059L4.62496 13.4412L4.88553 13.5607L5.18837 13.6828L5.43169 13.7686C5.56564 13.8128 5.70149 13.8529 5.83857 13.8885C5.94262 13.9155 6.04767 13.9401 6.15405 13.9622C6.27993 13.9883 6.40713 14.0109 6.53544 14.0298L6.85241 14.0685L7.11934 14.0892C7.24637 14.0965 7.37436 14.1002 7.50322 14.1002C11.1483 14.1002 14.1032 11.1453 14.1032 7.50023C14.1032 7.25044 14.0893 7.00389 14.0623 6.76131L14.0255 6.48407C13.991 6.26083 13.9453 6.04129 13.8891 5.82642C13.8213 5.56709 13.7382 5.31398 13.6409 5.06881L13.5279 4.80132L13.4507 4.63542L13.3766 4.48666C13.2178 4.17773 13.0353 3.88295 12.8312 3.60423L12.6782 3.40352L12.4793 3.16432L12.3157 2.98361L12.1961 2.85951L12.0355 2.70246L11.8134 2.50184L11.4925 2.24191L11.2483 2.06498L10.9562 1.87446L10.6346 1.68894L10.3073 1.52378L10.1938 1.47176L9.95488 1.3706L9.67791 1.2669L9.42566 1.1846L9.10075 1.09489L8.83599 1.03486L8.54406 0.98184ZM10.4032 5.30023C10.4032 4.27588 10.2002 3.29829 9.83244 2.40604C11.7623 3.28995 13.1032 5.23862 13.1032 7.50023C13.1032 10.593 10.596 13.1002 7.50322 13.1002C6.63646 13.1002 5.81597 12.9036 5.08355 12.5522C6.5419 12.0941 7.81081 11.2082 8.74322 10.0416C8.87963 10.2284 9.10028 10.3497 9.34928 10.3497C9.76349 10.3497 10.0993 10.0139 10.0993 9.59971C10.0993 9.24256 9.84965 8.94373 9.51535 8.86816C9.57741 8.75165 9.63653 8.63334 9.6926 8.51332C9.88358 8.63163 10.1088 8.69993 10.35 8.69993C11.0403 8.69993 11.6 8.14028 11.6 7.44993C11.6 6.75976 11.0406 6.20024 10.3505 6.19993C10.3853 5.90487 10.4032 5.60464 10.4032 5.30023Z"
+                            fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path>
+                    </svg>
+                </div>
+
+                <ul id="listboxT"
+                    class="hidden absolute z-50 mt-1 max-h-56 right-0 w-[100px] overflow-auto py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm whitespace-nowrap rounded-md border dark:border-darkborder border-input dark:border-darkborder dark:border-darkborder bg-lightbackground dark:bg-darkbackground px-1 shadow-sm ring-offset-background placeholder:text-[#71717a] dark:text-muted-foreground  focus:ring-1 focus:ring-ring"
+                    tabindex="-1" role="listbox" aria-labelledby="listbox-label"
+                    aria-activedescendant="listbox-option-3">
+                   
+                    <li class="text-card-foreground dark:text-darktext dark:hover:text-accent-foreground  dark:hover:bg-accent relative z-50 cursor-default select-none py-1 hover:bg-[#f4f4f5] hover:text-[#18181b] px-1 rounded-md"
+                        id="listbox-option-0" role="option" onclick="lighttheme()">
+                        <div class="nav-linkT flex items-center">                            
+                            <span class="font-normal  block truncate">Light</span>
+                        </div>
+
+                        
+                        <span id="ticklight" class="hidden text-[#71717a] dark:text-muted-foreground absolute inset-y-0 right-0 flex items-center px-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="13" width="10"
+                                viewBox="0 0 448 512">
+                                <path
+                                    d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+                            </svg>
+                        </span>
+                    </li>
+
+                    <!-- More items... -->
+
+                    <li class="text-card-foreground dark:text-darktext  dark:hover:text-accent-foreground  dark:hover:bg-accent relative z-50 cursor-default select-none py-1 hover:bg-[#f4f4f5] hover:text-[#18181b] px-1 rounded-md"
+                        id="listbox-option-0" role="option" onclick="darktheme()">
+                        <div class="nav-linkT flex items-center">                            
+                            <span class="font-normal  block truncate">Dark</span>
+                        </div>
+                        
+                        <span id="tickdarkk" class="hidden text-[#71717a] dark:text-muted-foreground absolute inset-y-0 right-0 flex items-center px-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="13" width="10"
+                                viewBox="0 0 448 512">
+                                <path
+                                    d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+                            </svg>
+                        </span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="items-start justify-center gap-6 rounded-lg p-8 md:grid lg:grid-cols-2 xl:grid-cols-3">
+            <div class="col-span-2 grid items-start gap-6 lg:col-span-1">
+                <!-- ************************* Create Account Component Start *********************** -->
+                <div class="flex items-center justify-center [&amp;>div]:w-full">
+                    <div class="rounded-xl border dark:border-darkborder bg-card text-card-foreground dark:text-darktext shadow">
+                        <div class="flex flex-col p-6 space-y-1">
+                            <h3 class="font-semibold tracking-tight text-2xl">Create an account</h3>
+                            <p class="text-sm text-[#71717a]">Enter your email below to create your account</p>
+                        </div>
+                        <div class="p-6 pt-0 grid gap-4">
+                            <div class="grid grid-cols-2 gap-6"><button
+                                    class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium  focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 border border-input dark:border-darkborder  dark:hover:text-accent-foreground  dark:hover:bg-accent bg-lightbackground dark:bg-darkbackground shadow-sm hover:bg-[#f4f4f5] hover:text-[#18181b] h-9 px-4 py-2"><svg
+                                        viewBox="0 0 438.549 438.549" class="mr-2 h-4 w-4">
+                                        <path fill="currentColor"
+                                            d="M409.132 114.573c-19.608-33.596-46.205-60.194-79.798-79.8-33.598-19.607-70.277-29.408-110.063-29.408-39.781 0-76.472 9.804-110.063 29.408-33.596 19.605-60.192 46.204-79.8 79.8C9.803 148.168 0 184.854 0 224.63c0 47.78 13.94 90.745 41.827 128.906 27.884 38.164 63.906 64.572 108.063 79.227 5.14.954 8.945.283 11.419-1.996 2.475-2.282 3.711-5.14 3.711-8.562 0-.571-.049-5.708-.144-15.417a2549.81 2549.81 0 01-.144-25.406l-6.567 1.136c-4.187.767-9.469 1.092-15.846 1-6.374-.089-12.991-.757-19.842-1.999-6.854-1.231-13.229-4.086-19.13-8.559-5.898-4.473-10.085-10.328-12.56-17.556l-2.855-6.57c-1.903-4.374-4.899-9.233-8.992-14.559-4.093-5.331-8.232-8.945-12.419-10.848l-1.999-1.431c-1.332-.951-2.568-2.098-3.711-3.429-1.142-1.331-1.997-2.663-2.568-3.997-.572-1.335-.098-2.43 1.427-3.289 1.525-.859 4.281-1.276 8.28-1.276l5.708.853c3.807.763 8.516 3.042 14.133 6.851 5.614 3.806 10.229 8.754 13.846 14.842 4.38 7.806 9.657 13.754 15.846 17.847 6.184 4.093 12.419 6.136 18.699 6.136 6.28 0 11.704-.476 16.274-1.423 4.565-.952 8.848-2.383 12.847-4.285 1.713-12.758 6.377-22.559 13.988-29.41-10.848-1.14-20.601-2.857-29.264-5.14-8.658-2.286-17.605-5.996-26.835-11.14-9.235-5.137-16.896-11.516-22.985-19.126-6.09-7.614-11.088-17.61-14.987-29.979-3.901-12.374-5.852-26.648-5.852-42.826 0-23.035 7.52-42.637 22.557-58.817-7.044-17.318-6.379-36.732 1.997-58.24 5.52-1.715 13.706-.428 24.554 3.853 10.85 4.283 18.794 7.952 23.84 10.994 5.046 3.041 9.089 5.618 12.135 7.708 17.705-4.947 35.976-7.421 54.818-7.421s37.117 2.474 54.823 7.421l10.849-6.849c7.419-4.57 16.18-8.758 26.262-12.565 10.088-3.805 17.802-4.853 23.134-3.138 8.562 21.509 9.325 40.922 2.279 58.24 15.036 16.18 22.559 35.787 22.559 58.817 0 16.178-1.958 30.497-5.853 42.966-3.9 12.471-8.941 22.457-15.125 29.979-6.191 7.521-13.901 13.85-23.131 18.986-9.232 5.14-18.182 8.85-26.84 11.136-8.662 2.286-18.415 4.004-29.263 5.146 9.894 8.562 14.842 22.077 14.842 40.539v60.237c0 3.422 1.19 6.279 3.572 8.562 2.379 2.279 6.136 2.95 11.276 1.995 44.163-14.653 80.185-41.062 108.068-79.226 27.88-38.161 41.825-81.126 41.825-128.906-.01-39.771-9.818-76.454-29.414-110.049z">
+                                        </path>
+                                    </svg>Github</button><button
+                                    class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium  focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 border border-input dark:border-darkborder  dark:hover:text-accent-foreground  dark:hover:bg-accent bg-lightbackground dark:bg-darkbackground shadow-sm hover:bg-[#f4f4f5] hover:text-[#18181b] h-9 px-4 py-2"><svg
+                                        role="img" viewBox="0 0 24 24" class="mr-2 h-4 w-4">
+                                        <path fill="currentColor"
+                                            d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z">
+                                        </path>
+                                    </svg>Google</button></div>
+                            <div class="relative">
+                                <div class="absolute inset-0 flex items-center"><span class="w-full border-t"></span>
+                                </div>
+                                <div class="relative flex justify-center text-xs uppercase"><span
+                                        class="bg-lightbackground dark:bg-darkbackground px-2 text-[#71717a]">Or continue with</span></div>
+                            </div>
+                            <div class="grid gap-2"><label
+                                    class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                                    for="email">Email</label><input type="email"
+                                    class="flex h-9 w-full rounded-md border border-input dark:border-darkborder bg-transparent px-3 py-1 text-sm shadow-sm  file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-[#71717a] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
+                                    id="email" placeholder="m@example.com"></div>
+                            <div class="grid gap-2"><label
+                                    class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                                    for="password">Password</label><input type="password"
+                                    class="flex h-9 w-full rounded-md border border-input dark:border-darkborder bg-transparent px-3 py-1 text-sm shadow-sm  file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-[#71717a] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
+                                    id="password"></div>
+                        </div>
+                        <div class="flex items-center p-6 pt-0"><button
+                                class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium  focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-[#18181b] text-[#fafafa] hover:bg-[#18181b]/90 shadow h-9 px-4 py-2 w-full">Create
+                                account</button></div>
+                    </div>
+                </div>
+                <!-- ************************* Create Account Component End *********************** -->
+
+                <!-- ************************* Payment Method Component Start *********************** -->
+
+                <div class="flex items-center justify-center [&amp;>div]:w-full">
+                    <div class="rounded-xl border dark:border-darkborder bg-card text-card-foreground dark:text-darktext shadow ">
+                        <div class="flex flex-col space-y-1.5 p-6">
+                            <h3 class="font-semibold leading-none tracking-tight">Payment Method</h3>
+                            <p class="text-sm text-[#71717a]">Add a new payment method to your account.</p>
+                        </div>
+                        <div class="p-6 pt-0 grid gap-6">
+                            <div role="radiogroup" aria-required="false" dir="ltr" class="grid grid-cols-3 gap-4"
+                                tabindex="0" style="outline:none">
+                                <div onclick="cardBorder()"><button type="button" role="radio" aria-checked="false"
+                                        data-state="unchecked" value="card"
+                                        class="aspect-square h-4 w-4 rounded-full border border-primary text-primary shadow focus:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 peer sr-only "
+                                        id="card" tabindex="-1" data-radix-collection-item=""></button>
+                                    <label id="cardBor"
+                                        class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 flex flex-col items-center justify-between rounded-md border-2 border-muted bg-popover  dark:hover:text-accent-foreground  dark:hover:bg-accent p-4 hover:bg-[#f4f4f5] hover:text-[#18181b] peer-data-[state=checked]:border-primary [&amp;:has([data-state=checked])]:border-primary"
+                                        for="card"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                            fill="none" stroke="currentColor" stroke-linecap="round"
+                                            stroke-linejoin="round" stroke-width="2" class="mb-3 h-6 w-6">
+                                            <rect width="20" height="14" x="2" y="5" rx="2"></rect>
+                                            <path d="M2 10h20"></path>
+                                        </svg>Card</label>
+                                </div>
+                                <div onclick="paypalBorder()">
+                                    <button type="button" role="radio" aria-checked="false" data-state="unchecked"
+                                        value="paypal"
+                                        class="aspect-square h-4 w-4 rounded-full border border-primary text-primary shadow focus:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 peer sr-only"
+                                        id="paypal" tabindex="-1" data-radix-collection-item=""></button>
+                                    <label id="paypalBor"
+                                        class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70  dark:hover:text-accent-foreground  dark:hover:bg-accent flex flex-col items-center justify-between rounded-md border-2 border-muted bg-popover p-4 hover:bg-[#f4f4f5] hover:text-[#18181b] peer-data-[state=checked]:border-primary [&amp;:has([data-state=checked])]:border-primary"
+                                        for="paypal"><svg role="img" viewBox="0 0 24 24" class="mb-3 h-6 w-6">
+                                            <path
+                                                d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944.901C5.026.382 5.474 0 5.998 0h7.46c2.57 0 4.578.543 5.69 1.81 1.01 1.15 1.304 2.42 1.012 4.287-.023.143-.047.288-.077.437-.983 5.05-4.349 6.797-8.647 6.797h-2.19c-.524 0-.968.382-1.05.9l-1.12 7.106zm14.146-14.42a3.35 3.35 0 0 0-.607-.541c-.013.076-.026.175-.041.254-.93 4.778-4.005 7.201-9.138 7.201h-2.19a.563.563 0 0 0-.556.479l-1.187 7.527h-.506l-.24 1.516a.56.56 0 0 0 .554.647h3.882c.46 0 .85-.334.922-.788.06-.26.76-4.852.816-5.09a.932.932 0 0 1 .923-.788h.58c3.76 0 6.705-1.528 7.565-5.946.36-1.847.174-3.388-.777-4.471z"
+                                                fill="currentColor"></path>
+                                        </svg>Paypal</label>
+                                </div>
+                                <div onclick="appleBorder()">
+                                    <button type="button" role="radio" aria-checked="true" data-state="checked"
+                                        value="apple"
+                                        class="aspect-square h-4 w-4 rounded-full border border-primary text-primary shadow focus:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 peer sr-only"
+                                        id="apple" tabindex="0" data-radix-collection-item=""><span data-state="checked"
+                                            class="flex items-center justify-center"><svg width="15" height="15"
+                                                viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                                class="h-3.5 w-3.5 fill-primary">
+                                                <path
+                                                    d="M11.4669 3.72684C11.7558 3.91574 11.8369 4.30308 11.648 4.59198L7.39799 11.092C7.29783 11.2452 7.13556 11.3467 6.95402 11.3699C6.77247 11.3931 6.58989 11.3355 6.45446 11.2124L3.70446 8.71241C3.44905 8.48022 3.43023 8.08494 3.66242 7.82953C3.89461 7.57412 4.28989 7.55529 4.5453 7.78749L6.75292 9.79441L10.6018 3.90792C10.7907 3.61902 11.178 3.53795 11.4669 3.72684Z"
+                                                    fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path>
+                                            </svg></span>
+                                    </button>
+                                    <label id="appleBor"
+                                        class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 flex flex-col items-center justify-between rounded-md border-2 border-muted  dark:hover:text-accent-foreground  dark:hover:bg-accent bg-popover p-4 hover:bg-[#f4f4f5] hover:text-[#18181b] peer-data-[state=checked]:border-primary [&amp;:has([data-state=checked])]:border-primary"
+                                        for="apple"><svg role="img" viewBox="0 0 24 24" class="mb-3 h-6 w-6">
+                                            <path
+                                                d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"
+                                                fill="currentColor"></path>
+                                        </svg>Apple</label>
+                                </div>
+                            </div>
+                            <div class="grid gap-2"><label
+                                    class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                                    for="name">Name</label><input
+                                    class="flex h-9 w-full rounded-md border border-input dark:border-darkborder bg-transparent px-3 py-1 text-sm shadow-sm  file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-[#71717a] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
+                                    id="name" placeholder="First Last"></div>
+                            <div class="grid gap-2"><label
+                                    class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                                    for="number">Card number</label><input
+                                    class="flex h-9 w-full rounded-md border border-input dark:border-darkborder bg-transparent px-3 py-1 text-sm shadow-sm  file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-[#71717a] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
+                                    id="number" placeholder=""></div>
+                            <div class="grid grid-cols-3 gap-4">
+                                <div class="grid gap-2"><label
+                                        class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                                        for="month">Expires</label>
+                                    <div class="relative">
+                                        <button type="button" onclick="dropdowntoggle5()"
+                                            class="dropbtn relative w-full h-9 cursor-default rounded-md border border-input dark:border-darkborder bg-transparent py-1.5 pl-3 pr-10 text-left text-card-foreground dark:text-darktext ring-inset ring-gray-300 focus:outline-none focus:ring-1 focus:ring-ring sm:text-sm sm:leading-6 "
+                                            aria-haspopup="listbox" aria-expanded="true"
+                                            aria-labelledby="listbox-label">
+                                            <span class="pointer-events-none flex items-center" id="selectedOption5">
+
+                                                <span class="block truncate">Month</span>
+                                            </span>
+                                            <span
+                                                class="pointer-events-none pointer-events-none absolute inset-y-0 right-0 ml-3 flex items-center pr-2">
+                                                <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    class="pointer-events-none h-4 w-4 opacity-50" aria-hidden="true">
+                                                    <path
+                                                        d="M4.93179 5.43179C4.75605 5.60753 4.75605 5.89245 4.93179 6.06819C5.10753 6.24392 5.39245 6.24392 5.56819 6.06819L7.49999 4.13638L9.43179 6.06819C9.60753 6.24392 9.89245 6.24392 10.0682 6.06819C10.2439 5.89245 10.2439 5.60753 10.0682 5.43179L7.81819 3.18179C7.73379 3.0974 7.61933 3.04999 7.49999 3.04999C7.38064 3.04999 7.26618 3.0974 7.18179 3.18179L4.93179 5.43179ZM10.0682 9.56819C10.2439 9.39245 10.2439 9.10753 10.0682 8.93179C9.89245 8.75606 9.60753 8.75606 9.43179 8.93179L7.49999 10.8636L5.56819 8.93179C5.39245 8.75606 5.10753 8.75606 4.93179 8.93179C4.75605 9.10753 4.75605 9.39245 4.93179 9.56819L7.18179 11.8182C7.35753 11.9939 7.64245 11.9939 7.81819 11.8182L10.0682 9.56819Z"
+                                                        fill="currentColor" fill-rule="evenodd" clip-rule="evenodd">
+                                                    </path>
+                                                </svg>
+                                            </span>
+                                        </button>
+
+                                        <ul id="listbox5"
+                                            class="hidden absolute -top-[354px] z-10 mt-1 max-h-86 w-[130px] overflow-auto py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm whitespace-nowrap rounded-md border border-input dark:border-darkborder bg-lightbackground dark:bg-darkbackground px-1 shadow-sm ring-offset-background placeholder:text-[#71717a]  focus:ring-1 focus:ring-ring"
+                                            tabindex="-1" role="listbox" aria-labelledby="listbox-label"
+                                            aria-activedescendant="listbox-option-3">
+                                            <!--
+                                              Select option, manage highlight styles based on mouseenter/mouseleave and keyboard navigation.
+                                      
+                                              Highlighted: "bg-indigo-600 text-white", Not Highlighted: "text-card-foreground dark:text-darktext"
+                                            -->
+                                            <li class="text-card-foreground dark:text-darktext relative cursor-default select-none py-1 hover:bg-[#f4f4f5] hover:text-[#18181b] px-1 rounded-md"
+                                                id="listbox-option-0" role="option">
+                                                <div class="nav-link5 flex items-center">
+
+                                                    
+                                                    <span class="font-normal  block truncate">January</span>
+                                                </div>
+
+                                                <!--
+                                                Checkmark, only display for selected option.
+                                      
+                                                Highlighted: "text-white", Not Highlighted: "text-indigo-600"
+                                              -->
+                                                <span id="tick"
+                                                    class="hidden text-[#71717a] absolute inset-y-0 right-0 flex items-center px-1">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" height="13" width="10"
+                                                        viewBox="0 0 448 512">
+                                                        <path
+                                                            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+                                                    </svg>
+                                                </span>
+                                            </li>
+
+                                            <!-- More items... -->
+
+
+                                            <li class="text-card-foreground dark:text-darktext relative cursor-default select-none py-1 hover:bg-[#f4f4f5] hover:text-[#18181b] px-1 rounded-md"
+                                                id="listbox-option-0" role="option">
+                                                <div class="nav-link5 flex items-center">
+
+                                                    
+                                                    <span class="font-normal  block truncate">Feburary</span>
+                                                </div>
+
+                                                <!--
+                                                Checkmark, only display for selected option.
+                                      
+                                                Highlighted: "text-white", Not Highlighted: "text-indigo-600"
+                                              -->
+                                                <span id="tick"
+                                                    class="hidden text-[#71717a] absolute inset-y-0 right-0 flex items-center px-1">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" height="13" width="10"
+                                                        viewBox="0 0 448 512">
+                                                        <path
+                                                            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+                                                    </svg>
+                                                </span>
+                                            </li>
+
+                                            <li class="text-card-foreground dark:text-darktext relative cursor-default select-none py-1 hover:bg-[#f4f4f5] hover:text-[#18181b] px-1 rounded-md"
+                                                id="listbox-option-0" role="option">
+                                                <div class="nav-link5 flex items-center">
+
+                                                    
+                                                    <span class="font-normal  block truncate">March</span>
+                                                </div>
+
+                                                <!--
+                                                Checkmark, only display for selected option.
+                                      
+                                                Highlighted: "text-white", Not Highlighted: "text-indigo-600"
+                                              -->
+                                                <span id="tick"
+                                                    class=" hidden text-[#71717a] absolute inset-y-0 right-0 flex items-center px-1">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" height="13" width="10"
+                                                        viewBox="0 0 448 512">
+                                                        <path
+                                                            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+                                                    </svg>
+                                                </span>
+                                            </li>
+
+                                            <li class="text-card-foreground dark:text-darktext relative cursor-default select-none py-1 hover:bg-[#f4f4f5] hover:text-[#18181b] px-1 rounded-md"
+                                                id="listbox-option-0" role="option">
+                                                <div class="nav-link5 flex items-center">
+
+                                                    
+                                                    <span class="font-normal  block truncate">April</span>
+                                                </div>
+
+                                                <!--
+                                                Checkmark, only display for selected option.
+                                      
+                                                Highlighted: "text-white", Not Highlighted: "text-indigo-600"
+                                              -->
+                                                <span id="tick"
+                                                    class="hidden text-[#71717a] absolute inset-y-0 right-0 flex items-center px-1">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" height="13" width="10"
+                                                        viewBox="0 0 448 512">
+                                                        <path
+                                                            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+                                                    </svg>
+                                                </span>
+                                            </li>
+
+                                            <li class="text-card-foreground dark:text-darktext relative cursor-default select-none py-1 hover:bg-[#f4f4f5] hover:text-[#18181b] px-1 rounded-md"
+                                                id="listbox-option-0" role="option">
+                                                <div class="nav-link5 flex items-center">
+
+                                                    
+                                                    <span class="font-normal  block truncate">May</span>
+                                                </div>
+
+                                                <!--
+                                                Checkmark, only display for selected option.
+                                      
+                                                Highlighted: "text-white", Not Highlighted: "text-indigo-600"
+                                              -->
+                                                <span id="tick"
+                                                    class="hidden text-[#71717a] absolute inset-y-0 right-0 flex items-center px-1">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" height="13" width="10"
+                                                        viewBox="0 0 448 512">
+                                                        <path
+                                                            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+                                                    </svg>
+                                                </span>
+                                            </li>
+
+                                            <li class="text-card-foreground dark:text-darktext relative cursor-default select-none py-1 hover:bg-[#f4f4f5] hover:text-[#18181b] px-1 rounded-md"
+                                                id="listbox-option-0" role="option">
+                                                <div class="nav-link5 flex items-center">
+
+                                                    
+                                                    <span class="font-normal  block truncate">June</span>
+                                                </div>
+
+                                                
+                                                <span id="tick"
+                                                    class="hidden text-[#71717a] absolute inset-y-0 right-0 flex items-center px-1">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" height="13" width="10"
+                                                        viewBox="0 0 448 512">
+                                                        <path
+                                                            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+                                                    </svg>
+                                                </span>
+                                            </li>
+
+                                            <li class="text-card-foreground dark:text-darktext relative cursor-default select-none py-1 hover:bg-[#f4f4f5] hover:text-[#18181b] px-1 rounded-md"
+                                                id="listbox-option-0" role="option">
+                                                <div class="nav-link5 flex items-center">
+
+                                                    
+                                                    <span class="font-normal  block truncate">July</span>
+                                                </div>
+
+                                                <!--
+                                        Checkmark, only display for selected option.
+                              
+                                        Highlighted: "text-white", Not Highlighted: "text-indigo-600"
+                                      -->
+                                                <span id="tick"
+                                                    class="hidden text-[#71717a] absolute inset-y-0 right-0 flex items-center px-1">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" height="13" width="10"
+                                                        viewBox="0 0 448 512">
+                                                        <path
+                                                            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+                                                    </svg>
+                                                </span>
+                                            </li>
+
+                                            <li class="text-card-foreground dark:text-darktext relative cursor-default select-none py-1 hover:bg-[#f4f4f5] hover:text-[#18181b] px-1 rounded-md"
+                                                id="listbox-option-0" role="option">
+                                                <div class="nav-link5 flex items-center">
+
+                                                    
+                                                    <span class="font-normal  block truncate">August</span>
+                                                </div>
+
+                                                <!--
+                                    Checkmark, only display for selected option.
+                          
+                                    Highlighted: "text-white", Not Highlighted: "text-indigo-600"
+                                  -->
+                                                <span id="tick"
+                                                    class="hidden text-[#71717a] absolute inset-y-0 right-0 flex items-center px-1">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" height="13" width="10"
+                                                        viewBox="0 0 448 512">
+                                                        <path
+                                                            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+                                                    </svg>
+                                                </span>
+                                            </li>
+
+                                            <li class="text-card-foreground dark:text-darktext relative cursor-default select-none py-1 hover:bg-[#f4f4f5] hover:text-[#18181b] px-1 rounded-md"
+                                                id="listbox-option-0" role="option">
+                                                <div class="nav-link5 flex items-center">
+
+                                                    
+                                                    <span class="font-normal  block truncate">September</span>
+                                                </div>
+
+                                                <!--
+                                Checkmark, only display for selected option.
+                      
+                                Highlighted: "text-white", Not Highlighted: "text-indigo-600"
+                              -->
+                                                <span id="tick"
+                                                    class="hidden text-[#71717a] absolute inset-y-0 right-0 flex items-center px-1">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" height="13" width="10"
+                                                        viewBox="0 0 448 512">
+                                                        <path
+                                                            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+                                                    </svg>
+                                                </span>
+                                            </li>
+
+                                            <li class="text-card-foreground dark:text-darktext relative cursor-default select-none py-1 hover:bg-[#f4f4f5] hover:text-[#18181b] px-1 rounded-md"
+                                                id="listbox-option-0" role="option">
+                                                <div class="nav-link5 flex items-center">
+
+                                                    
+                                                    <span class="font-normal  block truncate">October</span>
+                                                </div>
+
+                                                <!--
+                            Checkmark, only display for selected option.
+                  
+                            Highlighted: "text-white", Not Highlighted: "text-indigo-600"
+                          -->
+                                                <span id="tick"
+                                                    class="hidden text-[#71717a] absolute inset-y-0 right-0 flex items-center px-1">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" height="13" width="10"
+                                                        viewBox="0 0 448 512">
+                                                        <path
+                                                            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+                                                    </svg>
+                                                </span>
+                                            </li>
+
+                                            <li class="text-card-foreground dark:text-darktext relative cursor-default select-none py-1 hover:bg-[#f4f4f5] hover:text-[#18181b] px-1 rounded-md"
+                                                id="listbox-option-0" role="option">
+                                                <div class="nav-link5 flex items-center">
+
+                                                    
+                                                    <span class="font-normal  block truncate">November</span>
+                                                </div>
+
+                                                <!--
+                        Checkmark, only display for selected option.
+              
+                        Highlighted: "text-white", Not Highlighted: "text-indigo-600"
+                      -->
+                                                <span id="tick"
+                                                    class="hidden text-[#71717a] absolute inset-y-0 right-0 flex items-center px-1">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" height="13" width="10"
+                                                        viewBox="0 0 448 512">
+                                                        <path
+                                                            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+                                                    </svg>
+                                                </span>
+                                            </li>
+
+                                            <li class="text-card-foreground dark:text-darktext relative cursor-default select-none py-1 hover:bg-[#f4f4f5] hover:text-[#18181b] px-1 rounded-md"
+                                                id="listbox-option-0" role="option">
+                                                <div class="nav-link5 flex items-center">
+
+                                                    
+                                                    <span class="font-normal  block truncate">December</span>
+                                                </div>
+
+                                                <!--
+                    Checkmark, only display for selected option.
+          
+                    Highlighted: "text-white", Not Highlighted: "text-indigo-600"
+                  -->
+                                                <span id="tick"
+                                                    class="hidden text-[#71717a] absolute inset-y-0 right-0 flex items-center px-1">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" height="13" width="10"
+                                                        viewBox="0 0 448 512">
+                                                        <path
+                                                            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+                                                    </svg>
+                                                </span>
+                                            </li>
+
+
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="grid gap-2"><label
+                                        class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                                        for="year">Year</label>
+                                    <div class="relative">
+                                        <button type="button" onclick="dropdowntoggle6()"
+                                            class="dropbtn relative w-full h-9 cursor-default rounded-md border border-input dark:border-darkborder bg-transparent py-1.5 pl-3 pr-10 text-left text-card-foreground dark:text-darktext ring-inset ring-gray-300 focus:outline-none focus:ring-1 focus:ring-ring sm:text-sm sm:leading-6 "
+                                            aria-haspopup="listbox" aria-expanded="true"
+                                            aria-labelledby="listbox-label">
+                                            <span class="pointer-events-none flex items-center" id="selectedOption6">
+
+                                                <span class="pointer-events-none block truncate">Year</span>
+                                            </span>
+                                            <span
+                                                class="pointer-events-none absolute inset-y-0 right-0 ml-3 flex items-center pr-2">
+                                                <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    class="pointer-events-none h-4 w-4 opacity-50" aria-hidden="true">
+                                                    <path
+                                                        d="M4.93179 5.43179C4.75605 5.60753 4.75605 5.89245 4.93179 6.06819C5.10753 6.24392 5.39245 6.24392 5.56819 6.06819L7.49999 4.13638L9.43179 6.06819C9.60753 6.24392 9.89245 6.24392 10.0682 6.06819C10.2439 5.89245 10.2439 5.60753 10.0682 5.43179L7.81819 3.18179C7.73379 3.0974 7.61933 3.04999 7.49999 3.04999C7.38064 3.04999 7.26618 3.0974 7.18179 3.18179L4.93179 5.43179ZM10.0682 9.56819C10.2439 9.39245 10.2439 9.10753 10.0682 8.93179C9.89245 8.75606 9.60753 8.75606 9.43179 8.93179L7.49999 10.8636L5.56819 8.93179C5.39245 8.75606 5.10753 8.75606 4.93179 8.93179C4.75605 9.10753 4.75605 9.39245 4.93179 9.56819L7.18179 11.8182C7.35753 11.9939 7.64245 11.9939 7.81819 11.8182L10.0682 9.56819Z"
+                                                        fill="currentColor" fill-rule="evenodd" clip-rule="evenodd">
+                                                    </path>
+                                                </svg>
+                                            </span>
+                                        </button>
+
+                                        <ul id="listbox6"
+                                            class="hidden absolute -top-[298px] z-10 mt-1 w-[130px] overflow-auto py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm whitespace-nowrap rounded-md border border-input dark:border-darkborder bg-lightbackground dark:bg-darkbackground  px-1 shadow-sm ring-offset-background placeholder:text-[#71717a]  focus:ring-1 focus:ring-ring"
+                                            tabindex="-1" role="listbox" aria-labelledby="listbox-label"
+                                            aria-activedescendant="listbox-option-3">
+                                            <!--
+                                              Select option, manage highlight styles based on mouseenter/mouseleave and keyboard navigation.
+                                      
+                                              Highlighted: "bg-indigo-600 text-white", Not Highlighted: "text-card-foreground dark:text-darktext"
+                                            -->
+                                            <li class="text-card-foreground dark:text-darktext relative cursor-default select-none py-1 hover:bg-[#f4f4f5] hover:text-[#18181b] px-1 rounded-md"
+                                                id="listbox-option-0" role="option">
+                                                <div class="nav-link6 flex items-center">
+
+                                                    
+                                                    <span class="font-normal  block truncate">2024</span>
+                                                </div>
+
+                                                <!--
+                                                Checkmark, only display for selected option.
+                                      
+                                                Highlighted: "text-white", Not Highlighted: "text-indigo-600"
+                                              -->
+                                                <span id="tick"
+                                                    class="hidden text-[#71717a] absolute inset-y-0 right-0 flex items-center px-1">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" height="13" width="10"
+                                                        viewBox="0 0 448 512">
+                                                        <path
+                                                            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+                                                    </svg>
+                                                </span>
+                                            </li>
+
+                                            <!-- More items... -->
+
+
+                                            <li class="text-card-foreground dark:text-darktext relative cursor-default select-none py-1 hover:bg-[#f4f4f5] hover:text-[#18181b] px-1 rounded-md"
+                                                id="listbox-option-0" role="option">
+                                                <div class="nav-link6 flex items-center">
+
+                                                    
+                                                    <span class="font-normal  block truncate">2025</span>
+                                                </div>
+
+                                                <!--
+                                                Checkmark, only display for selected option.
+                                      
+                                                Highlighted: "text-white", Not Highlighted: "text-indigo-600"
+                                              -->
+                                                <span id="tick"
+                                                    class="hidden text-[#71717a] absolute inset-y-0 right-0 flex items-center px-1">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" height="13" width="10"
+                                                        viewBox="0 0 448 512">
+                                                        <path
+                                                            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+                                                    </svg>
+                                                </span>
+                                            </li>
+
+                                            <li class="text-card-foreground dark:text-darktext relative cursor-default select-none py-1 hover:bg-[#f4f4f5] hover:text-[#18181b] px-1 rounded-md"
+                                                id="listbox-option-0" role="option">
+                                                <div class="nav-link6 flex items-center">
+
+                                                    
+                                                    <span class="font-normal  block truncate">2026</span>
+                                                </div>
+
+                                                <!--
+                                                Checkmark, only display for selected option.
+                                      
+                                                Highlighted: "text-white", Not Highlighted: "text-indigo-600"
+                                              -->
+                                                <span id="tick"
+                                                    class=" hidden text-[#71717a] absolute inset-y-0 right-0 flex items-center px-1">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" height="13" width="10"
+                                                        viewBox="0 0 448 512">
+                                                        <path
+                                                            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+                                                    </svg>
+                                                </span>
+                                            </li>
+
+                                            <li class="text-card-foreground dark:text-darktext relative cursor-default select-none py-1 hover:bg-[#f4f4f5] hover:text-[#18181b] px-1 rounded-md"
+                                                id="listbox-option-0" role="option">
+                                                <div class="nav-link6 flex items-center">
+
+                                                    
+                                                    <span class="font-normal  block truncate">2027</span>
+                                                </div>
+
+                                                <!--
+                                                Checkmark, only display for selected option.
+                                      
+                                                Highlighted: "text-white", Not Highlighted: "text-indigo-600"
+                                              -->
+                                                <span id="tick"
+                                                    class="hidden text-[#71717a] absolute inset-y-0 right-0 flex items-center px-1">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" height="13" width="10"
+                                                        viewBox="0 0 448 512">
+                                                        <path
+                                                            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+                                                    </svg>
+                                                </span>
+                                            </li>
+
+                                            <li class="text-card-foreground dark:text-darktext relative cursor-default select-none py-1 hover:bg-[#f4f4f5] hover:text-[#18181b] px-1 rounded-md"
+                                                id="listbox-option-0" role="option">
+                                                <div class="nav-link6 flex items-center">
+
+                                                    
+                                                    <span class="font-normal  block truncate">2028</span>
+                                                </div>
+
+                                                <!--
+                                                Checkmark, only display for selected option.
+                                      
+                                                Highlighted: "text-white", Not Highlighted: "text-indigo-600"
+                                              -->
+                                                <span id="tick"
+                                                    class="hidden text-[#71717a] absolute inset-y-0 right-0 flex items-center px-1">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" height="13" width="10"
+                                                        viewBox="0 0 448 512">
+                                                        <path
+                                                            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+                                                    </svg>
+                                                </span>
+                                            </li>
+
+                                            <li class="text-card-foreground dark:text-darktext relative cursor-default select-none py-1 hover:bg-[#f4f4f5] hover:text-[#18181b] px-1 rounded-md"
+                                                id="listbox-option-0" role="option">
+                                                <div class="nav-link6 flex items-center">
+
+                                                    
+                                                    <span class="font-normal  block truncate">2029</span>
+                                                </div>
+
+                                                <!--
+                                                Checkmark, only display for selected option.
+                                      
+                                                Highlighted: "text-white", Not Highlighted: "text-indigo-600"
+                                              -->
+                                                <span id="tick"
+                                                    class="hidden text-[#71717a] absolute inset-y-0 right-0 flex items-center px-1">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" height="13" width="10"
+                                                        viewBox="0 0 448 512">
+                                                        <path
+                                                            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+                                                    </svg>
+                                                </span>
+                                            </li>
+
+                                            <li class="text-card-foreground dark:text-darktext relative cursor-default select-none py-1 hover:bg-[#f4f4f5] hover:text-[#18181b] px-1 rounded-md"
+                                                id="listbox-option-0" role="option">
+                                                <div class="nav-link6 flex items-center">
+
+                                                    
+                                                    <span class="font-normal  block truncate">2030</span>
+                                                </div>
+
+                                                <!--
+                                                Checkmark, only display for selected option.
+                                      
+                                                Highlighted: "text-white", Not Highlighted: "text-indigo-600"
+                                              -->
+                                                <span id="tick"
+                                                    class="hidden text-[#71717a] absolute inset-y-0 right-0 flex items-center px-1">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" height="13" width="10"
+                                                        viewBox="0 0 448 512">
+                                                        <path
+                                                            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+                                                    </svg>
+                                                </span>
+                                            </li>
+
+                                            <li class="text-card-foreground dark:text-darktext relative cursor-default select-none py-1 hover:bg-[#f4f4f5] hover:text-[#18181b] px-1 rounded-md"
+                                                id="listbox-option-0" role="option">
+                                                <div class="nav-link6 flex items-center">
+
+                                                    
+                                                    <span class="font-normal  block truncate">2031</span>
+                                                </div>
+
+                                                <!--
+                                                Checkmark, only display for selected option.
+                                      
+                                                Highlighted: "text-white", Not Highlighted: "text-indigo-600"
+                                              -->
+                                                <span id="tick"
+                                                    class="hidden text-[#71717a] absolute inset-y-0 right-0 flex items-center px-1">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" height="13" width="10"
+                                                        viewBox="0 0 448 512">
+                                                        <path
+                                                            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+                                                    </svg>
+                                                </span>
+                                            </li>
+
+                                            <li class="text-card-foreground dark:text-darktext relative cursor-default select-none py-1 hover:bg-[#f4f4f5] hover:text-[#18181b] px-1 rounded-md"
+                                                id="listbox-option-0" role="option">
+                                                <div class="nav-link6 flex items-center">
+
+                                                    
+                                                    <span class="font-normal  block truncate">2032</span>
+                                                </div>
+
+                                                <!--
+                                                Checkmark, only display for selected option.
+                                      
+                                                Highlighted: "text-white", Not Highlighted: "text-indigo-600"
+                                              -->
+                                                <span id="tick"
+                                                    class="hidden text-[#71717a] absolute inset-y-0 right-0 flex items-center px-1">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" height="13" width="10"
+                                                        viewBox="0 0 448 512">
+                                                        <path
+                                                            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+                                                    </svg>
+                                                </span>
+                                            </li>
+
+                                            <li class="text-card-foreground dark:text-darktext relative cursor-default select-none py-1 hover:bg-[#f4f4f5] hover:text-[#18181b] px-1 rounded-md"
+                                                id="listbox-option-0" role="option">
+                                                <div class="nav-link6 flex items-center">
+
+                                                    
+                                                    <span class="font-normal  block truncate">2033</span>
+                                                </div>
+
+                                                <!--
+                                                Checkmark, only display for selected option.
+                                      
+                                                Highlighted: "text-white", Not Highlighted: "text-indigo-600"
+                                              -->
+                                                <span id="tick"
+                                                    class="hidden text-[#71717a] absolute inset-y-0 right-0 flex items-center px-1">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" height="13" width="10"
+                                                        viewBox="0 0 448 512">
+                                                        <path
+                                                            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+                                                    </svg>
+                                                </span>
+                                            </li>
+
+
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="grid gap-2"><label
+                                        class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                                        for="cvc">CVC</label><input
+                                        class="flex h-9 w-full rounded-md border border-input dark:border-darkborder bg-transparent px-3 py-1 text-sm shadow-sm  file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-[#71717a] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
+                                        id="cvc" placeholder="CVC"></div>
+                            </div>
+                        </div>
+                        <div class="flex items-center p-6 pt-0"><button
+                                class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium  focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-[#18181b] text-[#fafafa] hover:bg-[#18181b]/90 shadow h-9 px-4 py-2 w-full">Continue</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ************************* Payment Method Component End *********************** -->
+            </div>
+
+            <div class="col-span-2 grid items-start gap-6 lg:col-span-1">
+                <!-- ************************* team member Component Start *********************** -->
+
+                <div class="flex items-center justify-center [&amp;>div]:w-full">
+                    <div class="rounded-xl border dark:border-darkborder bg-card text-card-foreground dark:text-darktext shadow">
+                        <div class="flex flex-col space-y-1.5 p-6">
+                            <h3 class="font-semibold leading-none tracking-tight">Team Members</h3>
+                            <p class="text-sm text-[#71717a]">Invite your team members to collaborate.</p>
+                        </div>
+                        <div class="p-6 pt-0 grid gap-6">
+                            <div class="flex items-center justify-between space-x-4">
+                                <div class="flex items-center space-x-4"><span
+                                        class="relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full"><img
+                                            class="aspect-square h-full w-full"
+                                            src="assests/images/profile.png"></span>
+                                    <div>
+                                        <p class="text-sm font-medium leading-none">Sofia Davis</p>
+                                        <p class="text-sm text-[#71717a]">m@example.com</p>
+                                    </div>
+                                </div>
+                                <div class="relative">
+
+                                    <button
+                                        class="dropbtn inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium  ring-inset ring-gray-300 focus:outline-none focus:ring-1 focus:ring-ring disabled:pointer-events-none disabled:opacity-50 border border-input dark:border-darkborder bg-lightbackground  dark:hover:text-accent-foreground  dark:hover:bg-accent dark:bg-darkbackground shadow-sm hover:bg-[#f4f4f5] hover:text-[#18181b] h-9 px-4 py-2 ml-auto"
+                                        type="button" aria-haspopup="dialog" aria-expanded="false"
+                                        aria-controls="radix-:R4oqnnlbq6la:" data-state="closed"
+                                        onclick="dropdowntoggle8()">Owner <svg width="15" height="15"
+                                            viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                            class="pointer-events-none ml-2 h-4 w-4 text-[#71717a]">
+                                            <path
+                                                d="M3.13523 6.15803C3.3241 5.95657 3.64052 5.94637 3.84197 6.13523L7.5 9.56464L11.158 6.13523C11.3595 5.94637 11.6759 5.95657 11.8648 6.15803C12.0536 6.35949 12.0434 6.67591 11.842 6.86477L7.84197 10.6148C7.64964 10.7951 7.35036 10.7951 7.15803 10.6148L3.15803 6.86477C2.95657 6.67591 2.94637 6.35949 3.13523 6.15803Z"
+                                                fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path>
+                                        </svg></button>
+
+                                    <ul id="listbox8"
+                                        class="hidden absolute right-0 z-10 mt-1  w-72 overflow-auto py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm whitespace-nowrap rounded-md border border-input dark:border-darkborder bg-lightbackground dark:bg-darkbackground px-1 shadow-sm ring-offset-background placeholder:text-[#71717a]  focus:ring-1 focus:ring-ring"
+                                        tabindex="-1" role="listbox" aria-labelledby="listbox-label"
+                                        aria-activedescendant="listbox-option-3">
+                                        <!--
+                                              Select option, manage highlight styles based on mouseenter/mouseleave and keyboard navigation.
+                                      
+                                              Highlighted: "bg-indigo-600 text-white", Not Highlighted: "text-card-foreground dark:text-darktext"
+                                            -->
+                                        <li id="listbox-option-0" role="option">
+                                            <div class="dropbtn flex items-center border-b px-3" cmdk-input-wrapper="">
+                                                <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    class="dropbtn mr-2 h-4 w-4 shrink-0 opacity-50">
+                                                    <path
+                                                        d="M10 6.5C10 8.433 8.433 10 6.5 10C4.567 10 3 8.433 3 6.5C3 4.567 4.567 3 6.5 3C8.433 3 10 4.567 10 6.5ZM9.30884 10.0159C8.53901 10.6318 7.56251 11 6.5 11C4.01472 11 2 8.98528 2 6.5C2 4.01472 4.01472 2 6.5 2C8.98528 2 11 4.01472 11 6.5C11 7.56251 10.6318 8.53901 10.0159 9.30884L12.8536 12.1464C13.0488 12.3417 13.0488 12.6583 12.8536 12.8536C12.6583 13.0488 12.3417 13.0488 12.1464 12.8536L9.30884 10.0159Z"
+                                                        fill="currentColor" fill-rule="evenodd" clip-rule="evenodd">
+                                                    </path>
+                                                </svg>
+                                                <input id="myInput" onkeyup="myFunction()"
+                                                    class="flex dropbtn h-10 w-full rounded-md bg-transparent py-3 text-sm outline-none placeholder:text-muted-foreground text-[#71717a] disabled:cursor-not-allowed disabled:opacity-50"
+                                                    placeholder="Select new role..." cmdk-input="" autocomplete="off"
+                                                    autocorrect="off" spellcheck="false" aria-autocomplete="list"
+                                                    role="combobox" aria-expanded="true" aria-controls=":r29:"
+                                                    aria-labelledby=":r2a:" id=":r2b:" type="text" value="">
+                                            </div>
+                                        </li>
+
+                                        <li class="text-card-foreground dark:hover:text-accent-foreground  dark:hover:bg-accent dark:text-darktext relative cursor-default select-none hover:bg-[#f4f4f5] hover:text-[#18181b] px-1 rounded-md"
+                                            id="listbox-option-0" role="option">
+                                            <div class="relative  cursor-default select-none rounded-sm text-sm outline-none aria-selected:bg-accent aria-selected:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50 teamaspace-y-1 flex flex-col items-start px-4 py-2"
+                                                cmdk-item="" role="option"
+                                                data-value="developercan view, comment and edit.">
+                                                <a href="">Viewer</a>
+                                                <p class="text-sm text-[#71717a]">Can view, comment and edit.</p>
+                                            </div>
+                                        </li>
+
+                                        <li class="text-card-foreground dark:hover:text-accent-foreground  dark:hover:bg-accent dark:text-darktext relative cursor-default select-none hover:bg-[#f4f4f5] hover:text-[#18181b] px-1 rounded-md"
+                                            id="listbox-option-0" role="option">
+                                            <div class="relative cursor-default select-none rounded-sm text-sm outline-none aria-selected:bg-accent aria-selected:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50 teamaspace-y-1 flex flex-col items-start px-4 py-2"
+                                                cmdk-item="" role="option"
+                                                data-value="developercan view, comment and edit.">
+                                                <a href="">Developer</a>
+                                                <p class="text-sm text-[#71717a]">Can view, comment and edit.</p>
+                                            </div>
+                                        </li>
+
+
+                                        <li class="text-card-foreground dark:hover:text-accent-foreground  dark:hover:bg-accent dark:text-darktext relative cursor-default select-none hover:bg-[#f4f4f5] hover:text-[#18181b] px-1 rounded-md"
+                                            id="listbox-option-0" role="option">
+                                            <div class="relative cursor-default select-none rounded-sm text-sm outline-none aria-selected:bg-accent aria-selected:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50 teamaspace-y-1 flex flex-col items-start px-4 py-2"
+                                                cmdk-item="" role="option"
+                                                data-value="billingcan view, comment and manage billing.">
+                                                <a href="">Billing</a>
+                                                <p class="text-sm text-[#71717a]">Can view, comment and manage billing.
+                                                </p>
+                                            </div>
+                                        </li>
+
+                                        <li class="text-card-foreground dark:hover:text-accent-foreground  dark:hover:bg-accent dark:text-darktext relative cursor-default select-none hover:bg-[#f4f4f5] hover:text-[#18181b] px-1 rounded-md"
+                                            id="listbox-option-0" role="option">
+                                            <div class="relative cursor-default select-none rounded-sm text-sm outline-none aria-selected:bg-accent aria-selected:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50 teamaspace-y-1 flex flex-col items-start px-4 py-2"
+                                                cmdk-item="" role="option"
+                                                data-value="owneradmin-level access to all resources.">
+                                                <a href="">Owner</a>
+                                                <p class="text-sm text-[#71717a]">Admin-level access to all resources.
+                                                </p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between space-x-4">
+                                <div class="flex items-center space-x-4"><span
+                                        class="relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full"><img
+                                            class="aspect-square h-full w-full"
+                                            src="assests/images/profile2.png"></span>
+                                    <div>
+                                        <p class="text-sm font-medium leading-none">Jackson Lee</p>
+                                        <p class="text-sm text-[#71717a]">p@example.com</p>
+                                    </div>
+                                </div>
+                                <div class="relative">
+
+                                    <button
+                                        class="dropbtn inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium  ring-inset ring-gray-300 focus:outline-none focus:ring-1 focus:ring-ring disabled:pointer-events-none disabled:opacity-50 border  dark:hover:text-accent-foreground  dark:hover:bg-accent border-input dark:border-darkborder bg-lightbackground dark:bg-darkbackground shadow-sm hover:bg-[#f4f4f5] hover:text-[#18181b] h-9 px-4 py-2 ml-auto"
+                                        type="button" aria-haspopup="dialog" aria-expanded="false"
+                                        aria-controls="radix-:R4oqnnlbq6la:" data-state="closed"
+                                        onclick="dropdowntoggle9()">Member <svg width="15" height="15"
+                                            viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                            class="pointer-events-none ml-2 h-4 w-4 text-[#71717a]">
+                                            <path
+                                                d="M3.13523 6.15803C3.3241 5.95657 3.64052 5.94637 3.84197 6.13523L7.5 9.56464L11.158 6.13523C11.3595 5.94637 11.6759 5.95657 11.8648 6.15803C12.0536 6.35949 12.0434 6.67591 11.842 6.86477L7.84197 10.6148C7.64964 10.7951 7.35036 10.7951 7.15803 10.6148L3.15803 6.86477C2.95657 6.67591 2.94637 6.35949 3.13523 6.15803Z"
+                                                fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path>
+                                        </svg></button>
+
+                                    <ul id="listbox9"
+                                        class="hidden absolute right-0 z-10 mt-1  w-72 overflow-auto py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm whitespace-nowrap rounded-md border border-input dark:border-darkborder bg-lightbackground dark:bg-darkbackground px-1 shadow-sm ring-offset-background placeholder:text-[#71717a]  focus:ring-1 focus:ring-ring"
+                                        tabindex="-1" role="listbox" aria-labelledby="listbox-label"
+                                        aria-activedescendant="listbox-option-3">
+
+                                        <li id="listbox-option-0" role="option">
+                                            <div class="dropbtn flex items-center border-b px-3" cmdk-input-wrapper="">
+                                                <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    class="dropbtn mr-2 h-4 w-4 shrink-0 opacity-50">
+                                                    <path
+                                                        d="M10 6.5C10 8.433 8.433 10 6.5 10C4.567 10 3 8.433 3 6.5C3 4.567 4.567 3 6.5 3C8.433 3 10 4.567 10 6.5ZM9.30884 10.0159C8.53901 10.6318 7.56251 11 6.5 11C4.01472 11 2 8.98528 2 6.5C2 4.01472 4.01472 2 6.5 2C8.98528 2 11 4.01472 11 6.5C11 7.56251 10.6318 8.53901 10.0159 9.30884L12.8536 12.1464C13.0488 12.3417 13.0488 12.6583 12.8536 12.8536C12.6583 13.0488 12.3417 13.0488 12.1464 12.8536L9.30884 10.0159Z"
+                                                        fill="currentColor" fill-rule="evenodd" clip-rule="evenodd">
+                                                    </path>
+                                                </svg>
+                                                <input id="myInput1" onkeyup="myFunction1()"
+                                                    class="flex dropbtn h-10 w-full rounded-md bg-transparent py-3 text-sm outline-none placeholder:text-muted-foreground text-[#71717a] disabled:cursor-not-allowed disabled:opacity-50"
+                                                    placeholder="Select new role..." cmdk-input="" autocomplete="off"
+                                                    autocorrect="off" spellcheck="false" aria-autocomplete="list"
+                                                    role="combobox" aria-expanded="true" aria-controls=":r29:"
+                                                    aria-labelledby=":r2a:" id=":r2b:" type="text" value="">
+                                            </div>
+                                        </li>
+
+                                        <li class="text-card-foreground dark:hover:text-accent-foreground  dark:hover:bg-accent dark:text-darktext relative cursor-default select-none hover:bg-[#f4f4f5] hover:text-[#18181b] px-1 rounded-md"
+                                            id="listbox-option-0" role="option">
+                                            <div class="relative cursor-default select-none rounded-sm text-sm outline-none aria-selected:bg-accent aria-selected:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50 teamaspace-y-1 flex flex-col items-start px-4 py-2"
+                                                cmdk-item="" role="option"
+                                                data-value="developercan view, comment and edit.">
+                                                <a href="">Viewer</a>
+                                                <p class="text-sm text-[#71717a]">Can view, comment and edit.</p>
+                                            </div>
+                                        </li>
+
+                                        <li class="text-card-foreground dark:hover:text-accent-foreground  dark:hover:bg-accent dark:text-darktext relative cursor-default select-none hover:bg-[#f4f4f5] hover:text-[#18181b] px-1 rounded-md"
+                                            id="listbox-option-0" role="option">
+                                            <div class="relative cursor-default select-none rounded-sm text-sm outline-none aria-selected:bg-accent aria-selected:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50 teamaspace-y-1 flex flex-col items-start px-4 py-2"
+                                                cmdk-item="" role="option"
+                                                data-value="developercan view, comment and edit.">
+                                                <a href="">Developer</a>
+                                                <p class="text-sm text-[#71717a]">Can view, comment and edit.</p>
+                                            </div>
+                                        </li>
+
+
+                                        <li class="text-card-foreground dark:hover:text-accent-foreground  dark:hover:bg-accent dark:text-darktext relative cursor-default select-none hover:bg-[#f4f4f5] hover:text-[#18181b] px-1 rounded-md"
+                                            id="listbox-option-0" role="option">
+                                            <div class="relative cursor-default select-none rounded-sm text-sm outline-none aria-selected:bg-accent aria-selected:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50 teamaspace-y-1 flex flex-col items-start px-4 py-2"
+                                                cmdk-item="" role="option"
+                                                data-value="billingcan view, comment and manage billing.">
+                                                <a href="">Billing</a>
+                                                <p class="text-sm text-[#71717a]">Can view, comment and manage billing.
+                                                </p>
+                                            </div>
+                                        </li>
+
+                                        <li class="text-card-foreground dark:hover:text-accent-foreground  dark:hover:bg-accent dark:text-darktext relative cursor-default select-none hover:bg-[#f4f4f5] hover:text-[#18181b] px-1 rounded-md"
+                                            id="listbox-option-0" role="option">
+                                            <div class="relative cursor-default select-none rounded-sm text-sm outline-none aria-selected:bg-accent aria-selected:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50 teamaspace-y-1 flex flex-col items-start px-4 py-2"
+                                                cmdk-item="" role="option"
+                                                data-value="owneradmin-level access to all resources.">
+                                                <a href="">Owner</a>
+                                                <p class="text-sm text-[#71717a]">Admin-level access to all resources.
+                                                </p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ************************* team member Component End *********************** -->
+
+                <!-- ************************* Share Document Component Start *********************** -->
+
+                <div class="flex items-center justify-center [&amp;>div]:w-full">
+                    <div class="rounded-xl border dark:border-darkborder bg-card text-card-foreground dark:text-darktext shadow">
+                        <div class="flex flex-col space-y-1.5 p-6">
+                            <h3 class="font-semibold leading-none tracking-tight">Share this document</h3>
+                            <p class="text-sm text-[#71717a]">Anyone with the link can view this document.</p>
+                        </div>
+                        <div class="p-6 pt-0">
+                            <div class="flex space-x-2"><input
+                                    class="flex h-9 w-full rounded-md border border-input dark:border-darkborder bg-transparent px-3 py-1 text-sm shadow-sm  file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-[#71717a] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
+                                    readonly="" value="http://example.com/link/to/document"><button
+                                    class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium  focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-[#f4f4f5] text-[#18181b] shadow-sm hover:bg-[#f4f4f5]/80 h-9 px-4 py-2 shrink-0">Copy
+                                    Link</button></div>
+                            <div data-orientation="horizontal" role="none"
+                                class="shrink-0 bg-border h-[1px] w-full my-4"></div>
+                            <div class="space-y-4">
+                                <h4 class="text-sm font-medium">People with access</h4>
+                                <div class="grid gap-6">
+                                    <div class="flex items-center justify-between space-x-4">
+                                        <div class="flex items-center space-x-4"><span
+                                                class="relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full"><img
+                                                    class="aspect-square h-full w-full"
+                                                    src="assests/images/profile3.png"></span>
+                                            <div>
+                                                <p class="text-sm font-medium leading-none">Olivia Martin</p>
+                                                <p class="text-sm text-[#71717a]">m@example.com</p>
+                                            </div>
+                                        </div>
+                                        <div class="relative">
+                                            <button type="button" onclick="dropdowntoggle2()"
+                                                class="dropbtn relative w-[120px] h-9 cursor-default rounded-md border border-input dark:border-darkborder bg-transparent py-1.5 pl-3 pr-10 text-left text-card-foreground dark:text-darktext ring-inset ring-gray-300 focus:outline-none focus:ring-1 focus:ring-ring sm:text-sm sm:leading-6 "
+                                                aria-haspopup="listbox" aria-expanded="true"
+                                                aria-labelledby="listbox-label">
+                                                <span class="pointer-events-none flex items-center"
+                                                    id="selectedOption2">
+
+                                                    <span class="pointer-events-none block truncate">Can View</span>
+                                                </span>
+                                                <span
+                                                    class="pointer-events-none absolute inset-y-0 right-0 ml-3 flex items-center pr-2">
+                                                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 opacity-50"
+                                                        aria-hidden="true">
+                                                        <path
+                                                            d="M4.93179 5.43179C4.75605 5.60753 4.75605 5.89245 4.93179 6.06819C5.10753 6.24392 5.39245 6.24392 5.56819 6.06819L7.49999 4.13638L9.43179 6.06819C9.60753 6.24392 9.89245 6.24392 10.0682 6.06819C10.2439 5.89245 10.2439 5.60753 10.0682 5.43179L7.81819 3.18179C7.73379 3.0974 7.61933 3.04999 7.49999 3.04999C7.38064 3.04999 7.26618 3.0974 7.18179 3.18179L4.93179 5.43179ZM10.0682 9.56819C10.2439 9.39245 10.2439 9.10753 10.0682 8.93179C9.89245 8.75606 9.60753 8.75606 9.43179 8.93179L7.49999 10.8636L5.56819 8.93179C5.39245 8.75606 5.10753 8.75606 4.93179 8.93179C4.75605 9.10753 4.75605 9.39245 4.93179 9.56819L7.18179 11.8182C7.35753 11.9939 7.64245 11.9939 7.81819 11.8182L10.0682 9.56819Z"
+                                                            fill="currentColor" fill-rule="evenodd" clip-rule="evenodd">
+                                                        </path>
+                                                    </svg>
+                                                </span>
+                                            </button>
+
+                                            <ul id="listbox2"
+                                                class="hidden absolute z-10 mt-1 max-h-56 w-full overflow-auto py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm whitespace-nowrap rounded-md border border-input dark:border-darkborder bg-lightbackground dark:bg-darkbackground px-1 shadow-sm ring-offset-background placeholder:text-[#71717a]  focus:ring-1 focus:ring-ring"
+                                                tabindex="-1" role="listbox" aria-labelledby="listbox-label"
+                                                aria-activedescendant="listbox-option-3">
+                                                <!--
+                                              Select option, manage highlight styles based on mouseenter/mouseleave and keyboard navigation.
+                                      
+                                              Highlighted: "bg-indigo-600 text-white", Not Highlighted: "text-card-foreground dark:text-darktext"
+                                            -->
+                                                <li class="text-card-foreground dark:text-darktext relative cursor-default select-none py-1 hover:bg-[#f4f4f5] hover:text-[#18181b] px-1 rounded-md"
+                                                    id="listbox-option-0" role="option">
+                                                    <div class="nav-link2 flex items-center">
+
+                                                        
+                                                        <span class="font-normal  block truncate">Can View</span>
+                                                    </div>
+
+                                                    <!--
+                                                Checkmark, only display for selected option.
+                                      
+                                                Highlighted: "text-white", Not Highlighted: "text-indigo-600"
+                                              -->
+                                                    <span id="tick"
+                                                        class="text-[#71717a] absolute inset-y-0 right-0 flex items-center px-1">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" height="13" width="10"
+                                                            viewBox="0 0 448 512">
+                                                            <path
+                                                                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+                                                        </svg>
+                                                    </span>
+                                                </li>
+
+                                                <!-- More items... -->
+
+
+                                                <li class="text-card-foreground dark:text-darktext relative cursor-default select-none py-1 hover:bg-[#f4f4f5] hover:text-[#18181b] px-1 rounded-md"
+                                                    id="listbox-option-0" role="option">
+                                                    <div class="nav-link2 flex items-center">
+
+                                                        
+                                                        <span class="font-normal  block truncate">Can Edit</span>
+                                                    </div>
+
+                                                    <!--
+                                                Checkmark, only display for selected option.
+                                      
+                                                Highlighted: "text-white", Not Highlighted: "text-indigo-600"
+                                              -->
+                                                    <span id="tick"
+                                                        class="hidden text-[#71717a] absolute inset-y-0 right-0 flex items-center px-1">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" height="13" width="10"
+                                                            viewBox="0 0 448 512">
+                                                            <path
+                                                                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+                                                        </svg>
+                                                    </span>
+                                                </li>
+
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center justify-between space-x-4">
+                                        <div class="flex items-center space-x-4"><span
+                                                class="relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full"><img
+                                                    class="aspect-square h-full w-full"
+                                                    src="assests/images/profile4.png"></span>
+                                            <div>
+                                                <p class="text-sm font-medium leading-none">Isabella Nguyen</p>
+                                                <p class="text-sm text-[#71717a]">b@example.com</p>
+                                            </div>
+                                        </div>
+                                        <div class="relative">
+                                            <button type="button" onclick="dropdowntoggle3()"
+                                                class="dropbtn relative w-[120px] h-9 cursor-default rounded-md border border-input dark:border-darkborder bg-transparent py-1.5 pl-3 pr-10 text-left text-card-foreground dark:text-darktext ring-inset ring-gray-300 focus:outline-none focus:ring-1 focus:ring-ring sm:text-sm sm:leading-6 "
+                                                aria-haspopup="listbox" aria-expanded="true"
+                                                aria-labelledby="listbox-label">
+                                                <span class="pointer-events-none flex items-center"
+                                                    id="selectedOption3">
+                                                    <span class="pointer-events-none block truncate">Can View</span>
+                                                </span>
+                                                <span
+                                                    class="pointer-events-none absolute inset-y-0 right-0 ml-3 flex items-center pr-2">
+                                                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 opacity-50"
+                                                        aria-hidden="true">
+                                                        <path
+                                                            d="M4.93179 5.43179C4.75605 5.60753 4.75605 5.89245 4.93179 6.06819C5.10753 6.24392 5.39245 6.24392 5.56819 6.06819L7.49999 4.13638L9.43179 6.06819C9.60753 6.24392 9.89245 6.24392 10.0682 6.06819C10.2439 5.89245 10.2439 5.60753 10.0682 5.43179L7.81819 3.18179C7.73379 3.0974 7.61933 3.04999 7.49999 3.04999C7.38064 3.04999 7.26618 3.0974 7.18179 3.18179L4.93179 5.43179ZM10.0682 9.56819C10.2439 9.39245 10.2439 9.10753 10.0682 8.93179C9.89245 8.75606 9.60753 8.75606 9.43179 8.93179L7.49999 10.8636L5.56819 8.93179C5.39245 8.75606 5.10753 8.75606 4.93179 8.93179C4.75605 9.10753 4.75605 9.39245 4.93179 9.56819L7.18179 11.8182C7.35753 11.9939 7.64245 11.9939 7.81819 11.8182L10.0682 9.56819Z"
+                                                            fill="currentColor" fill-rule="evenodd" clip-rule="evenodd">
+                                                        </path>
+                                                    </svg>
+                                                </span>
+                                            </button>
+
+                                            <ul id="listbox3"
+                                                class="hidden absolute z-10 mt-1 max-h-56 w-full overflow-auto py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm whitespace-nowrap rounded-md border border-input dark:border-darkborder bg-lightbackground dark:bg-darkbackground px-1 shadow-sm ring-offset-background placeholder:text-[#71717a]  focus:ring-1 focus:ring-ring"
+                                                tabindex="-1" role="listbox" aria-labelledby="listbox-label"
+                                                aria-activedescendant="listbox-option-3">
+                                                <!--
+                                              Select option, manage highlight styles based on mouseenter/mouseleave and keyboard navigation.
+                                      
+                                              Highlighted: "bg-indigo-600 text-white", Not Highlighted: "text-card-foreground dark:text-darktext"
+                                            -->
+                                                <li class="text-card-foreground dark:text-darktext relative cursor-default select-none py-1 hover:bg-[#f4f4f5] hover:text-[#18181b] px-1 rounded-md"
+                                                    id="listbox-option-0" role="option">
+                                                    <div class="nav-link3 flex items-center">
+
+                                                        
+                                                        <span class="font-normal  block truncate">Can View</span>
+                                                    </div>
+
+                                                    <!--
+                                                Checkmark, only display for selected option.
+                                      
+                                                Highlighted: "text-white", Not Highlighted: "text-indigo-600"
+                                              -->
+                                                    <span id="tick"
+                                                        class="text-[#71717a] absolute inset-y-0 right-0 flex items-center px-1">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" height="13" width="10"
+                                                            viewBox="0 0 448 512">
+                                                            <path
+                                                                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+                                                        </svg>
+                                                    </span>
+                                                </li>
+
+                                                <!-- More items... -->
+
+
+                                                <li class="text-card-foreground dark:text-darktext relative cursor-default select-none py-1 hover:bg-[#f4f4f5] hover:text-[#18181b] px-1 rounded-md"
+                                                    id="listbox-option-0" role="option">
+                                                    <div class="nav-link3 flex items-center">
+
+                                                        
+                                                        <span class="font-normal  block truncate">Can Edit</span>
+                                                    </div>
+
+                                                    <!--
+                                                Checkmark, only display for selected option.
+                                      
+                                                Highlighted: "text-white", Not Highlighted: "text-indigo-600"
+                                              -->
+                                                    <span id="tick"
+                                                        class="hidden text-[#71717a] absolute inset-y-0 right-0 flex items-center px-1">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" height="13" width="10"
+                                                            viewBox="0 0 448 512">
+                                                            <path
+                                                                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+                                                        </svg>
+                                                    </span>
+                                                </li>
+
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center justify-between space-x-4">
+                                        <div class="flex items-center space-x-4"><span
+                                                class="relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full"><img
+                                                    class="aspect-square h-full w-full"
+                                                    src="assests/images/profile5.png"></span>
+                                            <div>
+                                                <p class="text-sm font-medium leading-none">Sofia Davis</p>
+                                                <p class="text-sm text-[#71717a]">p@example.com</p>
+                                            </div>
+                                        </div>
+                                        <div class="relative">
+                                            <button type="button" onclick="dropdowntoggle4()"
+                                                class="dropbtn relative w-[120px] h-9 cursor-default rounded-md border border-input dark:border-darkborder bg-transparent py-1.5 pl-3 pr-10 text-left text-card-foreground dark:text-darktext ring-inset ring-gray-300 focus:outline-none focus:ring-1 focus:ring-ring sm:text-sm sm:leading-6 "
+                                                aria-haspopup="listbox" aria-expanded="true"
+                                                aria-labelledby="listbox-label">
+                                                <span class="pointer-events-none flex items-center"
+                                                    id="selectedOption4">
+
+                                                    <span class="pointer-events-none block truncate">Can View</span>
+                                                </span>
+                                                <span
+                                                    class="pointer-events-none absolute inset-y-0 right-0 ml-3 flex items-center pr-2">
+                                                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                        class="pointer-events-none h-4 w-4 opacity-50"
+                                                        aria-hidden="true">
+                                                        <path
+                                                            d="M4.93179 5.43179C4.75605 5.60753 4.75605 5.89245 4.93179 6.06819C5.10753 6.24392 5.39245 6.24392 5.56819 6.06819L7.49999 4.13638L9.43179 6.06819C9.60753 6.24392 9.89245 6.24392 10.0682 6.06819C10.2439 5.89245 10.2439 5.60753 10.0682 5.43179L7.81819 3.18179C7.73379 3.0974 7.61933 3.04999 7.49999 3.04999C7.38064 3.04999 7.26618 3.0974 7.18179 3.18179L4.93179 5.43179ZM10.0682 9.56819C10.2439 9.39245 10.2439 9.10753 10.0682 8.93179C9.89245 8.75606 9.60753 8.75606 9.43179 8.93179L7.49999 10.8636L5.56819 8.93179C5.39245 8.75606 5.10753 8.75606 4.93179 8.93179C4.75605 9.10753 4.75605 9.39245 4.93179 9.56819L7.18179 11.8182C7.35753 11.9939 7.64245 11.9939 7.81819 11.8182L10.0682 9.56819Z"
+                                                            fill="currentColor" fill-rule="evenodd" clip-rule="evenodd">
+                                                        </path>
+                                                    </svg>
+                                                </span>
+                                            </button>
+
+                                            <ul id="listbox4"
+                                                class="hidden absolute z-10 mt-1 max-h-56 w-full overflow-auto py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm whitespace-nowrap rounded-md border border-input dark:border-darkborder bg-lightbackground dark:bg-darkbackground px-1 shadow-sm ring-offset-background placeholder:text-[#71717a]  focus:ring-1 focus:ring-ring"
+                                                tabindex="-1" role="listbox" aria-labelledby="listbox-label"
+                                                aria-activedescendant="listbox-option-3">
+                                                <!--
+                                              Select option, manage highlight styles based on mouseenter/mouseleave and keyboard navigation.
+                                      
+                                              Highlighted: "bg-indigo-600 text-white", Not Highlighted: "text-card-foreground dark:text-darktext"
+                                            -->
+                                                <li class="text-card-foreground dark:text-darktext relative cursor-default select-none py-1 hover:bg-[#f4f4f5] hover:text-[#18181b] px-1 rounded-md"
+                                                    id="listbox-option-0" role="option">
+                                                    <div class="nav-link4 flex items-center">
+
+                                                        
+                                                        <span class="font-normal  block truncate">Can View</span>
+                                                    </div>
+
+                                                    <!--
+                                                Checkmark, only display for selected option.
+                                      
+                                                Highlighted: "text-white", Not Highlighted: "text-indigo-600"
+                                              -->
+                                                    <span id="tick"
+                                                        class="text-[#71717a] absolute inset-y-0 right-0 flex items-center px-1">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" height="13" width="10"
+                                                            viewBox="0 0 448 512">
+                                                            <path
+                                                                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+                                                        </svg>
+                                                    </span>
+                                                </li>
+
+                                                <!-- More items... -->
+
+
+                                                <li class="text-card-foreground dark:text-darktext relative cursor-default select-none py-1 hover:bg-[#f4f4f5] hover:text-[#18181b] px-1 rounded-md"
+                                                    id="listbox-option-0" role="option">
+                                                    <div class="nav-link4 flex items-center">
+
+                                                        
+                                                        <span class="font-normal  block truncate">Can Edit</span>
+                                                    </div>
+
+                                                    <!--
+                                                Checkmark, only display for selected option.
+                                      
+                                                Highlighted: "text-white", Not Highlighted: "text-indigo-600"
+                                              -->
+                                                    <span id="tick"
+                                                        class="hidden text-[#71717a] absolute inset-y-0 right-0 flex items-center px-1">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" height="13" width="10"
+                                                            viewBox="0 0 448 512">
+                                                            <path
+                                                                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+                                                        </svg>
+                                                    </span>
+                                                </li>
+
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ************************* Share Document Component end *********************** -->
+
+                <!-- ************************* Date Component Start *********************** -->
+
+                <div class="flex items-center justify-center [&amp;>div]:w-full">
+                    <div class="rounded-xl border dark:border-darkborder bg-card text-card-foreground dark:text-darktext shadow">
+                        <div class="p-6 pt-6">
+                            <div class="space-y-2">
+                                <label
+                                    class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 shrink-0"
+                                    for="date">Pick a date
+                                </label>
+                                <div class="grid gap-2 [&amp;>button]:w-[260px]">
+
+                                     <!-- date -->
+                            <div x-data="app()" x-init="[initDate(), getNoOfDays()]" x-cloak>
+                                <div class="container">
+                                    <div class="">
+                                        <div class="relative">
+
+                                            <input type="hidden" name="date" x-ref="date" :value="datepickerValue" />
+                                            <input type="text" x-on:click="showDatepicker = !showDatepicker"
+                                                x-model="datepickerValue" x-on:keydown.escape="showDatepicker = false"
+                                                class="w-[170px] pl-10 pr-10 py-3 h-10 leading-none rounded-md shadow-sm text-sm ring-offset-background transition-colors focus-visible:outline-none  disabled:pointer-events-none disabled:opacity-50 border dark:border-darkborder border-input  bg-[#ffffff] hover:bg-[#f4f4f5] dark:hover:bg-darkbackground dark:text-darktext dark:bg-transparent hover:text-[#18181b] dark:hover:text-darktext"
+                                                placeholder="Select date" readonly />
+
+                                            <div class="absolute top-0 left-0 px-3 py-3">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                    class="mr-2 h-4 dark:text-darktext w-4">
+                                                    <rect width="18" height="18" x="3" y="4" rx="2" ry="2"></rect>
+                                                    <line x1="16" x2="16" y1="2" y2="6"></line>
+                                                    <line x1="8" x2="8" y1="2" y2="6"></line>
+                                                    <line x1="3" x2="21" y1="10" y2="10"></line>
+                                                </svg>
+                                            </div>
+
+                                            <!-- <div x-text="no_of_days.length"></div>
+                                      <div x-text="32 - new Date(year, month, 32).getDate()"></div>
+                                      <div x-text="new Date(year, month).getDay()"></div> -->
+
+                                            <div class="bg-[#ffffff] dark:bg-[#09090b] mt-12 rounded-lg shadow p-4 absolute top-0 left-0"
+                                                style="width: 17rem" x-show.transition="showDatepicker"
+                                                @click.away="showDatepicker = false">
+                                                <div class="flex justify-between items-center mb-2">
+                                                    <div>
+                                                        <span x-text="MONTH_NAMES[month]"
+                                                            class="text-lg font-bold dark:text-darktext  text-gray-800"></span>
+                                                        <span x-text="year"
+                                                            class="ml-1 text-lg dark:text-darktext  text-gray-600 font-normal"></span>
+                                                    </div>
+                                                    <div>
+                                                        <button type="button"
+                                                            class="focus:outline-none focus:shadow-outline transition ease-in-out duration-100 inline-flex cursor-pointer hover:bg-gray-100 p-1 rounded-full"
+                                                            @click="if (month == 0) {
+                                                  year--;
+                                                  month = 12;
+                                                } month--; getNoOfDays()">
+                                                            <svg class="h-6 w-6   text-gray-400 inline-flex" fill="none"
+                                                                viewBox="0 0 24 24" stroke="currentColor">
+                                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                                    stroke-width="2" d="M15 19l-7-7 7-7" />
+                                                            </svg>
+                                                        </button>
+                                                        <button type="button"
+                                                            class="focus:outline-none focus:shadow-outline transition ease-in-out duration-100 inline-flex cursor-pointer hover:bg-gray-100 p-1 rounded-full"
+                                                            @click="if (month == 11) {
+                                                  month = 0; 
+                                                  year++;
+                                                } else {
+                                                  month++; 
+                                                } getNoOfDays()">
+                                                            <svg class="h-6 w-6 text-gray-400 dark:text-darktext inline-flex" fill="none"
+                                                                viewBox="0 0 24 24" stroke="currentColor">
+                                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                                    stroke-width="2" d="M9 5l7 7-7 7" />
+                                                            </svg>
+                                                        </button>
+                                                    </div>
+                                                </div>
+
+                                                <div class="flex flex-wrap mb-3 -mx-1">
+                                                    <template x-for="(day, index) in DAYS" :key="index">
+                                                        <div style="width: 14.26%" class="px-0.5">
+                                                            <div x-text="day"
+                                                                class="text-gray-800 dark:text-darktext  font-medium text-center text-xs">
+                                                            </div>
+                                                        </div>
+                                                    </template>
+                                                </div>
+
+                                                <div class="flex flex-wrap -mx-1">
+                                                    <template x-for="blankday in blankdays">
+                                                        <div style="width: 14.28%"
+                                                            class="text-center border dark:text-darktext  p-1 border-transparent text-sm">
+                                                        </div>
+                                                    </template>
+                                                    <template x-for="(date, dateIndex) in no_of_days" :key="dateIndex">
+                                                        <div style="width: 14.28%" class="px-1 mb-1">
+                                                            <div @click="getDateValue(date)" x-text="date"
+                                                                class="cursor-pointer text-center text-sm leading-none rounded-full leading-loose transition ease-in-out  dark:text-darktext  duration-100"
+                                                                :class="{
+                                                'bg-[#18181b]': isToday(date) == true, 
+                                                'text-gray-600 hover:bg-indigo-200': isToday(date) == false && isSelectedDate(date) == false,
+                                                'bg-[#18181b] dark:bg-darktext text-white dark:text-black hover:bg-opacity-75': isSelectedDate(date) == true 
+                                              }"></div>
+                                                        </div>
+                                                    </template>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- date -->
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ************************* Date Component End *********************** -->
+
+
+                <!-- ************************* Nptification component Start *********************** -->
+
+                <div class="flex items-center justify-center [&amp;>div]:w-full">
+                    <div class="rounded-xl border dark:border-darkborder bg-card text-card-foreground dark:text-darktext shadow">
+                        <div class="flex flex-col space-y-1.5 p-6 pb-3">
+                            <h3 class="font-semibold leading-none tracking-tight">Notifications</h3>
+                            <p class="text-sm text-[#71717a]">Choose what you want to be notified about.</p>
+                        </div>
+                        <div class="p-6 pt-0 grid gap-1">
+                            <div
+                                class="-mx-2 flex items-start space-x-4  dark:hover:text-accent-foreground  dark:hover:bg-accent rounded-md p-2  hover:bg-[#f4f4f5] hover:text-[#18181b]">
+                                <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg" class="mt-px h-5 w-5">
+                                    <path
+                                        d="M8.60124 1.25086C8.60124 1.75459 8.26278 2.17927 7.80087 2.30989C10.1459 2.4647 12 4.41582 12 6.79999V10.25C12 11.0563 12.0329 11.7074 12.7236 12.0528C12.931 12.1565 13.0399 12.3892 12.9866 12.6149C12.9333 12.8406 12.7319 13 12.5 13H8.16144C8.36904 13.1832 8.49997 13.4513 8.49997 13.75C8.49997 14.3023 8.05226 14.75 7.49997 14.75C6.94769 14.75 6.49997 14.3023 6.49997 13.75C6.49997 13.4513 6.63091 13.1832 6.83851 13H2.49999C2.2681 13 2.06664 12.8406 2.01336 12.6149C1.96009 12.3892 2.06897 12.1565 2.27638 12.0528C2.96708 11.7074 2.99999 11.0563 2.99999 10.25V6.79999C2.99999 4.41537 4.85481 2.46396 7.20042 2.3098C6.73867 2.17908 6.40036 1.75448 6.40036 1.25086C6.40036 0.643104 6.89304 0.150421 7.5008 0.150421C8.10855 0.150421 8.60124 0.643104 8.60124 1.25086ZM7.49999 3.29999C5.56699 3.29999 3.99999 4.86699 3.99999 6.79999V10.25L4.00002 10.3009C4.0005 10.7463 4.00121 11.4084 3.69929 12H11.3007C10.9988 11.4084 10.9995 10.7463 11 10.3009L11 10.25V6.79999C11 4.86699 9.43299 3.29999 7.49999 3.29999Z"
+                                        fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path>
+                                </svg>
+                                <div class="space-y-1 ">
+                                    <p class="text-sm  font-medium leading-none">Everything</p>
+                                    <p class="text-sm text-[#71717a]">Email digest, mentions &amp; all activity.
+                                    </p>
+                                </div>
+                            </div>
+                            <div
+                                class="-mx-2 flex items-start space-x-4 rounded-md dark:text-accent-foreground  dark:bg-accent bg-[#f4f4f5] text-[#18181b]  p-2  ">
+                                <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg" class="mt-px h-5 w-5">
+                                    <path
+                                        d="M7.5 0.875C5.49797 0.875 3.875 2.49797 3.875 4.5C3.875 6.15288 4.98124 7.54738 6.49373 7.98351C5.2997 8.12901 4.27557 8.55134 3.50407 9.31167C2.52216 10.2794 2.02502 11.72 2.02502 13.5999C2.02502 13.8623 2.23769 14.0749 2.50002 14.0749C2.76236 14.0749 2.97502 13.8623 2.97502 13.5999C2.97502 11.8799 3.42786 10.7206 4.17091 9.9883C4.91536 9.25463 6.02674 8.87499 7.49995 8.87499C8.97317 8.87499 10.0846 9.25463 10.8291 9.98831C11.5721 10.7206 12.025 11.8799 12.025 13.5999C12.025 13.8623 12.2376 14.0749 12.5 14.0749C12.7623 14.075 12.975 13.8623 12.975 13.6C12.975 11.72 12.4778 10.2794 11.4959 9.31166C10.7244 8.55135 9.70025 8.12903 8.50625 7.98352C10.0187 7.5474 11.125 6.15289 11.125 4.5C11.125 2.49797 9.50203 0.875 7.5 0.875ZM4.825 4.5C4.825 3.02264 6.02264 1.825 7.5 1.825C8.97736 1.825 10.175 3.02264 10.175 4.5C10.175 5.97736 8.97736 7.175 7.5 7.175C6.02264 7.175 4.825 5.97736 4.825 4.5Z"
+                                        fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path>
+                                </svg>
+                                <div class="space-y-1">
+                                    <p class="text-sm font-medium leading-none">Available</p>
+                                    <p class="text-sm text-[#71717a]">Only mentions and comments.</p>
+                                </div>
+                            </div>
+                            <div
+                                class="-mx-2 flex items-start  dark:hover:text-accent-foreground  dark:hover:bg-accent space-x-4 rounded-md p-2  hover:bg-[#f4f4f5] hover:text-[#18181b]">
+                                <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg" class="mt-px h-5 w-5">
+                                    <path
+                                        d="M13.3536 2.35355C13.5488 2.15829 13.5488 1.84171 13.3536 1.64645C13.1583 1.45118 12.8417 1.45118 12.6464 1.64645L10.6828 3.61012C9.70652 3.21671 8.63759 3 7.5 3C4.30786 3 1.65639 4.70638 0.0760002 7.23501C-0.0253338 7.39715 -0.0253334 7.60288 0.0760014 7.76501C0.902945 9.08812 2.02314 10.1861 3.36061 10.9323L1.64645 12.6464C1.45118 12.8417 1.45118 13.1583 1.64645 13.3536C1.84171 13.5488 2.15829 13.5488 2.35355 13.3536L4.31723 11.3899C5.29348 11.7833 6.36241 12 7.5 12C10.6921 12 13.3436 10.2936 14.924 7.76501C15.0253 7.60288 15.0253 7.39715 14.924 7.23501C14.0971 5.9119 12.9769 4.81391 11.6394 4.06771L13.3536 2.35355ZM9.90428 4.38861C9.15332 4.1361 8.34759 4 7.5 4C4.80285 4 2.52952 5.37816 1.09622 7.50001C1.87284 8.6497 2.89609 9.58106 4.09974 10.1931L9.90428 4.38861ZM5.09572 10.6114L10.9003 4.80685C12.1039 5.41894 13.1272 6.35031 13.9038 7.50001C12.4705 9.62183 10.1971 11 7.5 11C6.65241 11 5.84668 10.8639 5.09572 10.6114Z"
+                                        fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path>
+                                </svg>
+                                <div class="space-y-1">
+                                    <p class="text-sm font-medium leading-none">Ignoring</p>
+                                    <p class="text-sm text-[#71717a]">Turn off all notifications.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ************************* Notification Component End *********************** -->
+            </div>
+
+            <div class="col-span-2 grid items-start gap-6 lg:col-span-2 lg:grid-cols-2 xl:col-span-1 xl:grid-cols-1">
+                <!-- ************************* Report Component Start *********************** -->
+
+                <div class="flex items-center justify-center [&amp;>div]:w-full">
+                    <div class="rounded-xl border dark:border-darkborder bg-card text-card-foreground dark:text-darktext shadow">
+                        <div class="flex flex-col space-y-1.5 p-6">
+                            <h3 class="font-semibold leading-none tracking-tight">Report an issue</h3>
+                            <p class="text-sm text-[#71717a]">What area are you having problems with?</p>
+                        </div>
+                        <div class="p-6 pt-0 grid gap-6">
+                            <div class="grid grid-cols-2 gap-4">
+                                <!-- select box -->
+                                <div class="grid gap-2">
+                                    <label id="listbox-label"
+                                        class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">Assigned
+                                        to</label>
+                                    <div class="relative">
+                                        <button type="button" onclick="dropdowntoggle()"
+                                            class="dropbtn relative w-full h-9 cursor-default rounded-md border border-input dark:border-darkborder bg-transparent py-1.5 pl-3 pr-10 text-left text-card-foreground dark:text-darktext ring-inset ring-gray-300 focus:outline-none focus:ring-1 focus:ring-ring sm:text-sm sm:leading-6"
+                                            aria-haspopup="listbox" aria-expanded="true"
+                                            aria-labelledby="listbox-label">
+                                            <span class="pointer-events-none flex items-center" id="selectedOption">
+
+                                                <span class="pointer-events-none block truncate">Billing</span>
+                                            </span>
+                                            <span
+                                                class="pointer-events-none absolute inset-y-0 right-0 ml-3 flex items-center pr-2">
+                                                <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    class="pointer-events-none h-4 w-4 opacity-50" aria-hidden="true">
+                                                    <path
+                                                        d="M4.93179 5.43179C4.75605 5.60753 4.75605 5.89245 4.93179 6.06819C5.10753 6.24392 5.39245 6.24392 5.56819 6.06819L7.49999 4.13638L9.43179 6.06819C9.60753 6.24392 9.89245 6.24392 10.0682 6.06819C10.2439 5.89245 10.2439 5.60753 10.0682 5.43179L7.81819 3.18179C7.73379 3.0974 7.61933 3.04999 7.49999 3.04999C7.38064 3.04999 7.26618 3.0974 7.18179 3.18179L4.93179 5.43179ZM10.0682 9.56819C10.2439 9.39245 10.2439 9.10753 10.0682 8.93179C9.89245 8.75606 9.60753 8.75606 9.43179 8.93179L7.49999 10.8636L5.56819 8.93179C5.39245 8.75606 5.10753 8.75606 4.93179 8.93179C4.75605 9.10753 4.75605 9.39245 4.93179 9.56819L7.18179 11.8182C7.35753 11.9939 7.64245 11.9939 7.81819 11.8182L10.0682 9.56819Z"
+                                                        fill="currentColor" fill-rule="evenodd" clip-rule="evenodd">
+                                                    </path>
+                                                </svg>
+                                            </span>
+                                        </button>
+
+                                        <ul id="listbox"
+                                            class="hidden absolute z-10 mt-1 max-h-56 w-full overflow-auto py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm whitespace-nowrap rounded-md border border-input dark:border-darkborder bg-lightbackground dark:bg-darkbackground px-1 shadow-sm ring-offset-background placeholder:text-[#71717a]  focus:ring-1 focus:ring-ring"
+                                            tabindex="-1" role="listbox" aria-labelledby="listbox-label"
+                                            aria-activedescendant="listbox-option-3">
+                                           
+                                            <li class="text-card-foreground dark:text-darktext relative cursor-default select-none py-1 hover:bg-[#f4f4f5] hover:text-[#18181b] px-1 rounded-md"
+                                                id="listbox-option-0" role="option">
+                                                <div class="nav-link flex items-center">
+
+                                                    
+                                                    <span class="font-normal  block truncate">Team</span>
+                                                </div>
+
+                                                
+                                                <span id="tick"
+                                                    class="hidden text-[#71717a] absolute inset-y-0 right-0 flex items-center px-1">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" height="13" width="10"
+                                                        viewBox="0 0 448 512">
+                                                        <path
+                                                            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+                                                    </svg>
+                                                </span>
+                                            </li>
+
+                                            <!-- More items... -->
+
+
+                                            <li class="text-card-foreground dark:text-darktext relative cursor-default select-none py-1 hover:bg-[#f4f4f5] hover:text-[#18181b] px-1 rounded-md"
+                                                id="listbox-option-0" role="option">
+                                                <div class="nav-link flex items-center">
+
+                                                    
+                                                    <span class="font-normal  block truncate">Billing</span>
+                                                </div>
+
+                                                
+                                                <span id="tick"
+                                                    class="text-[#71717a] absolute inset-y-0 right-0 flex items-center px-1">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" height="13" width="10"
+                                                        viewBox="0 0 448 512">
+                                                        <path
+                                                            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+                                                    </svg>
+                                                </span>
+                                            </li>
+
+                                            <li class="text-card-foreground dark:text-darktext relative cursor-default select-none py-1 hover:bg-[#f4f4f5] hover:text-[#18181b] px-1 rounded-md"
+                                                id="listbox-option-0" role="option">
+                                                <div class="nav-link flex items-center">
+
+                                                    
+                                                    <span class="font-normal  block truncate">Accounts</span>
+                                                </div>
+
+                                                
+                                                <span id="tick"
+                                                    class=" hidden text-[#71717a] absolute inset-y-0 right-0 flex items-center px-1">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" height="13" width="10"
+                                                        viewBox="0 0 448 512">
+                                                        <path
+                                                            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+                                                    </svg>
+                                                </span>
+                                            </li>
+
+                                            <li class="text-card-foreground dark:text-darktext relative cursor-default select-none py-1 hover:bg-[#f4f4f5] hover:text-[#18181b] px-1 rounded-md"
+                                                id="listbox-option-0" role="option">
+                                                <div class="nav-link flex items-center">
+
+                                                    
+                                                    <span class="font-normal  block truncate">Deployments</span>
+                                                </div>
+
+                                                
+                                                <span id="tick"
+                                                    class="hidden text-[#71717a] absolute inset-y-0 right-0 flex items-center px-1">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" height="13" width="10"
+                                                        viewBox="0 0 448 512">
+                                                        <path
+                                                            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+                                                    </svg>
+                                                </span>
+                                            </li>
+
+                                            <li class="text-card-foreground dark:text-darktext relative cursor-default select-none py-1 hover:bg-[#f4f4f5] hover:text-[#18181b] px-1 rounded-md"
+                                                id="listbox-option-0" role="option">
+                                                <div class="nav-link flex items-center">
+
+                                                    
+                                                    <span class="font-normal  block truncate">Supports</span>
+                                                </div>
+
+                                                
+                                                <span id="tick"
+                                                    class="hidden text-[#71717a] absolute inset-y-0 right-0 flex items-center px-1">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" height="13" width="10"
+                                                        viewBox="0 0 448 512">
+                                                        <path
+                                                            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+                                                    </svg>
+                                                </span>
+                                            </li>
+
+
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- select box -->
+
+
+                                <div class="grid gap-2">
+                                    <label
+                                        class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                                        for="security-level">Security Level</label>
+                                    <div class="relative">
+                                        <button type="button" onclick="dropdowntoggle1()"
+                                            class="dropbtn relative w-full h-9 cursor-default rounded-md border border-input dark:border-darkborder bg-transparent py-1.5 pl-3 pr-10 text-left text-card-foreground dark:text-darktext ring-inset ring-gray-300 focus:outline-none focus:ring-1 focus:ring-ring sm:text-sm sm:leading-6 "
+                                            aria-haspopup="listbox" aria-expanded="true"
+                                            aria-labelledby="listbox-label">
+                                            <span class="pointer-events-none flex items-center" id="selectedOption1">
+
+                                                <span class="pointer-events-none block truncate">Severity 2</span>
+                                            </span>
+                                            <span
+                                                class="pointer-events-none absolute inset-y-0 right-0 ml-3 flex items-center pr-2">
+                                                <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    class="pointer-events-none h-4 w-4 opacity-50" aria-hidden="true">
+                                                    <path
+                                                        d="M4.93179 5.43179C4.75605 5.60753 4.75605 5.89245 4.93179 6.06819C5.10753 6.24392 5.39245 6.24392 5.56819 6.06819L7.49999 4.13638L9.43179 6.06819C9.60753 6.24392 9.89245 6.24392 10.0682 6.06819C10.2439 5.89245 10.2439 5.60753 10.0682 5.43179L7.81819 3.18179C7.73379 3.0974 7.61933 3.04999 7.49999 3.04999C7.38064 3.04999 7.26618 3.0974 7.18179 3.18179L4.93179 5.43179ZM10.0682 9.56819C10.2439 9.39245 10.2439 9.10753 10.0682 8.93179C9.89245 8.75606 9.60753 8.75606 9.43179 8.93179L7.49999 10.8636L5.56819 8.93179C5.39245 8.75606 5.10753 8.75606 4.93179 8.93179C4.75605 9.10753 4.75605 9.39245 4.93179 9.56819L7.18179 11.8182C7.35753 11.9939 7.64245 11.9939 7.81819 11.8182L10.0682 9.56819Z"
+                                                        fill="currentColor" fill-rule="evenodd" clip-rule="evenodd">
+                                                    </path>
+                                                </svg>
+                                            </span>
+                                        </button>
+
+                                        <ul id="listbox1"
+                                            class="hidden absolute z-10 mt-1 max-h-56 w-full overflow-auto py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm whitespace-nowrap rounded-md border border-input dark:border-darkborder bg-lightbackground dark:bg-darkbackground px-1 shadow-sm ring-offset-background placeholder:text-[#71717a]  focus:ring-1 focus:ring-ring"
+                                            tabindex="-1" role="listbox" aria-labelledby="listbox-label"
+                                            aria-activedescendant="listbox-option-3">
+                                            <!--
+                                              Select option, manage highlight styles based on mouseenter/mouseleave and keyboard navigation.
+                                      
+                                              Highlighted: "bg-indigo-600 text-white", Not Highlighted: "text-card-foreground dark:text-darktext"
+                                            -->
+                                            <li class="text-card-foreground dark:text-darktext relative cursor-default select-none py-1 hover:bg-[#f4f4f5] hover:text-[#18181b] px-1 rounded-md"
+                                                id="listbox-option-0" role="option">
+                                                <div class="nav-link1 flex items-center">
+
+                                                    
+                                                    <span class="font-normal  block truncate">Severity 1
+                                                        (Highest)</span>
+                                                </div>
+
+                                                <!--
+                                                Checkmark, only display for selected option.
+                                      
+                                                Highlighted: "text-white", Not Highlighted: "text-indigo-600"
+                                              -->
+                                                <span id="tick"
+                                                    class="hidden text-[#71717a] absolute inset-y-0 right-0 flex items-center px-1">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" height="13" width="10"
+                                                        viewBox="0 0 448 512">
+                                                        <path
+                                                            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+                                                    </svg>
+                                                </span>
+                                            </li>
+
+                                            <!-- More items... -->
+
+
+                                            <li class="text-card-foreground dark:text-darktext relative cursor-default select-none py-1 hover:bg-[#f4f4f5] hover:text-[#18181b] px-1 rounded-md"
+                                                id="listbox-option-0" role="option">
+                                                <div class="nav-link1 flex items-center">
+
+                                                    
+                                                    <span class="font-normal  block truncate">Severity 2</span>
+                                                </div>
+
+                                                <!--
+                                                Checkmark, only display for selected option.
+                                      
+                                                Highlighted: "text-white", Not Highlighted: "text-indigo-600"
+                                              -->
+                                                <span id="tick"
+                                                    class="text-[#71717a] absolute inset-y-0 right-0 flex items-center px-1">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" height="13" width="10"
+                                                        viewBox="0 0 448 512">
+                                                        <path
+                                                            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+                                                    </svg>
+                                                </span>
+                                            </li>
+
+                                            <li class="text-card-foreground dark:text-darktext relative cursor-default select-none py-1 hover:bg-[#f4f4f5] hover:text-[#18181b] px-1 rounded-md"
+                                                id="listbox-option-0" role="option">
+                                                <div class="nav-link1 flex items-center">
+
+                                                    
+                                                    <span class="font-normal  block truncate">Severity 3</span>
+                                                </div>
+
+                                                <!--
+                                                Checkmark, only display for selected option.
+                                      
+                                                Highlighted: "text-white", Not Highlighted: "text-indigo-600"
+                                              -->
+                                                <span id="tick"
+                                                    class=" hidden text-[#71717a] absolute inset-y-0 right-0 flex items-center px-1">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" height="13" width="10"
+                                                        viewBox="0 0 448 512">
+                                                        <path
+                                                            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+                                                    </svg>
+                                                </span>
+                                            </li>
+
+                                            <li class="text-card-foreground dark:text-darktext relative cursor-default select-none py-1 hover:bg-[#f4f4f5] hover:text-[#18181b] px-1 rounded-md"
+                                                id="listbox-option-0" role="option">
+                                                <div class="nav-link1 flex items-center">
+
+                                                    
+                                                    <span class="font-normal  block truncate">Severity 4 (Lowest)</span>
+                                                </div>
+
+                                                <!--
+                                                Checkmark, only display for selected option.
+                                      
+                                                Highlighted: "text-white", Not Highlighted: "text-indigo-600"
+                                              -->
+                                                <span id="tick"
+                                                    class="hidden text-[#71717a] absolute inset-y-0 right-0 flex items-center px-1">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" height="13" width="10"
+                                                        viewBox="0 0 448 512">
+                                                        <path
+                                                            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+                                                    </svg>
+                                                </span>
+                                            </li>
+
+
+
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="grid gap-2"><label
+                                    class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                                    for="subject">Subject</label><input
+                                    class="flex h-9 w-full rounded-md border border-input dark:border-darkborder bg-transparent px-3 py-1 text-sm shadow-sm  file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-[#71717a] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
+                                    id="subject" placeholder="I need help with..."></div>
+                            <div class="grid gap-2"><label
+                                    class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                                    for="description">Description</label><textarea
+                                    class="flex min-h-[60px] w-full rounded-md border border-input dark:border-darkborder bg-transparent px-3 py-2 text-sm shadow-sm placeholder:text-[#71717a] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
+                                    id="description"
+                                    placeholder="Please include all information relevant to your issue."></textarea>
+                            </div>
+                        </div>
+                        <div class="flex items-center p-6 pt-0 justify-between space-x-2"><button
+                                class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium  focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:bg-[#f4f4f5] hover:text-[#18181b] h-9 px-4 py-2">Cancel</button><button
+                                class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium  focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-[#18181b] text-[#fafafa] hover:bg-[#18181b]/90 shadow h-9 px-4 py-2">Submit</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ************************* Report Component End *********************** -->
+
+                <!-- ************************* shadcn Component Start *********************** -->
+
+                <div class="flex items-center justify-center [&amp;>div]:w-full">
+                    <div class="rounded-xl border dark:border-darkborder bg-card text-card-foreground dark:text-darktext shadow">
+                        <div class="flex-col p-6 grid grid-cols-[1fr_110px] items-start gap-4 space-y-0">
+                            <div class="space-y-1">
+                                <h3 class="font-semibold leading-none tracking-tight">shadcn/ui</h3>
+                                <p class="text-sm text-[#71717a]">Beautifully designed components that you can
+                                    copy and paste into your apps. Accessible. Customizable. Open Source.</p>
+                            </div>
+                            <div class="relative flex items-center space-x-1 rounded-md bg-[#f4f4f5] text-[#18181b]">
+                                <button
+                                    class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium  focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-[#f4f4f5] text-[#18181b] hover:bg-[#f4f4f5]/80 h-9 py-2 px-3 shadow-none"><svg
+                                        width="15" height="15" viewBox="0 0 15 15" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg" class="mr-2 h-4 w-4">
+                                        <path
+                                            d="M6.97942 1.25171L6.9585 1.30199L5.58662 4.60039C5.54342 4.70426 5.44573 4.77523 5.3336 4.78422L1.7727 5.0697L1.71841 5.07405L1.38687 5.10063L1.08608 5.12475C0.820085 5.14607 0.712228 5.47802 0.914889 5.65162L1.14406 5.84793L1.39666 6.06431L1.43802 6.09974L4.15105 8.42374C4.23648 8.49692 4.2738 8.61176 4.24769 8.72118L3.41882 12.196L3.40618 12.249L3.32901 12.5725L3.25899 12.866C3.19708 13.1256 3.47945 13.3308 3.70718 13.1917L3.9647 13.0344L4.24854 12.861L4.29502 12.8326L7.34365 10.9705C7.43965 10.9119 7.5604 10.9119 7.6564 10.9705L10.705 12.8326L10.7515 12.861L11.0354 13.0344L11.2929 13.1917C11.5206 13.3308 11.803 13.1256 11.7411 12.866L11.671 12.5725L11.5939 12.249L11.5812 12.196L10.7524 8.72118C10.7263 8.61176 10.7636 8.49692 10.849 8.42374L13.562 6.09974L13.6034 6.06431L13.856 5.84793L14.0852 5.65162C14.2878 5.47802 14.18 5.14607 13.914 5.12475L13.6132 5.10063L13.2816 5.07405L13.2274 5.0697L9.66645 4.78422C9.55432 4.77523 9.45663 4.70426 9.41343 4.60039L8.04155 1.30199L8.02064 1.25171L7.89291 0.944609L7.77702 0.665992C7.67454 0.419604 7.32551 0.419604 7.22303 0.665992L7.10715 0.944609L6.97942 1.25171ZM7.50003 2.60397L6.50994 4.98442C6.32273 5.43453 5.89944 5.74207 5.41351 5.78103L2.84361 5.98705L4.8016 7.66428C5.17183 7.98142 5.33351 8.47903 5.2204 8.95321L4.62221 11.461L6.8224 10.1171C7.23842 9.86302 7.76164 9.86302 8.17766 10.1171L10.3778 11.461L9.77965 8.95321C9.66654 8.47903 9.82822 7.98142 10.1984 7.66428L12.1564 5.98705L9.58654 5.78103C9.10061 5.74207 8.67732 5.43453 8.49011 4.98442L7.50003 2.60397Z"
+                                            fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path>
+                                    </svg>Star</button>
+                                <div data-orientation="vertical" role="none"
+                                    class="shrink-0 bg-border w-[1px] h-[20px]"></div>
+                                <button
+                                    class="dropbtn inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium  focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-[#f4f4f5] text-[#18181b] hover:bg-[#f4f4f5]/80 h-9 py-2 px-2 shadow-none"
+                                    type="button" id="radix-:R3jennlbq6la:" aria-haspopup="menu" aria-expanded="false"
+                                    data-state="closed" onclick="dropdowntoggle7()"><svg width="15" height="15"
+                                        viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                        class="pointer-events-none h-4 w-4 text-[#18181b]">
+                                        <path
+                                            d="M3.13523 6.15803C3.3241 5.95657 3.64052 5.94637 3.84197 6.13523L7.5 9.56464L11.158 6.13523C11.3595 5.94637 11.6759 5.95657 11.8648 6.15803C12.0536 6.35949 12.0434 6.67591 11.842 6.86477L7.84197 10.6148C7.64964 10.7951 7.35036 10.7951 7.15803 10.6148L3.15803 6.86477C2.95657 6.67591 2.94637 6.35949 3.13523 6.15803Z"
+                                            fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path>
+                                    </svg>
+                                </button>
+
+                                <ul id="listbox7"
+                                    class="hidden absolute top-10 right-0 z-10 mt-1 max-h-56 w-[200px] overflow-auto py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm whitespace-nowrap rounded-md border border-input dark:border-darkborder bg-lightbackground dark:bg-darkbackground px-1 shadow-sm ring-offset-background placeholder:text-[#71717a]  focus:ring-1 focus:ring-ring"
+                                    tabindex="-1" role="listbox" aria-labelledby="listbox-label"
+                                    aria-activedescendant="listbox-option-3">
+
+
+                                    <li id="listbox-option-0" role="option">
+                                        <div class="px-2 py-1.5 text-sm font-semibold">Suggested Lists</div>
+                                        <div role="separator" aria-orientation="horizontal"
+                                            class="-mx-1 my-1 h-px bg-[#f4f4f5]"></div>
+
+                                    </li>
+                                    <!-- More items... -->
+
+                                    <li class="text-card-foreground dark:text-darktext relative cursor-default select-none py-0.2 hover:bg-[#f4f4f5] hover:text-[#18181b] px-1 rounded-md"
+                                        id="listbox-option-0" role="option">
+
+                                        <div role="menuitemcheckbox" aria-checked="true"
+                                            class=" flex cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none  focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50"
+                                            data-state="checked" tabindex="-1" data-orientation="vertical"
+                                            data-radix-collection-item="" onclick="option1()"><span
+                                                class="absolute left-2 flex h-3.5 w-3.5 items-center justify-center"><span
+                                                    class="" id="opt1" data-state="checked"><svg width="15" height="15"
+                                                        viewBox="0 0 15 15" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg" class="h-4 w-4">
+                                                        <path
+                                                            d="M11.4669 3.72684C11.7558 3.91574 11.8369 4.30308 11.648 4.59198L7.39799 11.092C7.29783 11.2452 7.13556 11.3467 6.95402 11.3699C6.77247 11.3931 6.58989 11.3355 6.45446 11.2124L3.70446 8.71241C3.44905 8.48022 3.43023 8.08494 3.66242 7.82953C3.89461 7.57412 4.28989 7.55529 4.5453 7.78749L6.75292 9.79441L10.6018 3.90792C10.7907 3.61902 11.178 3.53795 11.4669 3.72684Z"
+                                                            fill="currentColor" fill-rule="evenodd" clip-rule="evenodd">
+                                                        </path>
+                                                    </svg></span></span>Future Ideas</div>
+                                    </li>
+
+                                    <li class="text-card-foreground dark:text-darktext relative cursor-default select-none py-0.2 hover:bg-[#f4f4f5] hover:text-[#18181b] px-1 rounded-md"
+                                        id="listbox-option-0" role="option">
+
+                                        <div role="menuitemcheckbox" aria-checked="true"
+                                            class=" flex cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none  focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50"
+                                            onclick="option2()" data-state="checked" tabindex="-1"
+                                            data-orientation="vertical" data-radix-collection-item=""><span
+                                                class="absolute left-2 flex h-3.5 w-3.5 items-center justify-center"><span
+                                                    class="hidden" id="opt2" data-state="checked"><svg width="15"
+                                                        height="15" viewBox="0 0 15 15" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg" class="h-4 w-4">
+                                                        <path
+                                                            d="M11.4669 3.72684C11.7558 3.91574 11.8369 4.30308 11.648 4.59198L7.39799 11.092C7.29783 11.2452 7.13556 11.3467 6.95402 11.3699C6.77247 11.3931 6.58989 11.3355 6.45446 11.2124L3.70446 8.71241C3.44905 8.48022 3.43023 8.08494 3.66242 7.82953C3.89461 7.57412 4.28989 7.55529 4.5453 7.78749L6.75292 9.79441L10.6018 3.90792C10.7907 3.61902 11.178 3.53795 11.4669 3.72684Z"
+                                                            fill="currentColor" fill-rule="evenodd" clip-rule="evenodd">
+                                                        </path>
+                                                    </svg></span></span>My Stack</div>
+                                    </li>
+
+                                    <li class="text-card-foreground dark:text-darktext relative cursor-default select-none py-0.2 hover:bg-[#f4f4f5] hover:text-[#18181b] px-1 rounded-md"
+                                        id="listbox-option-0" role="option">
+
+                                        <div role="menuitemcheckbox" aria-checked="true"
+                                            class=" flex cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none  focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50"
+                                            onclick="option3()" data-state="checked" tabindex="-1"
+                                            data-orientation="vertical" data-radix-collection-item=""><span
+                                                class="absolute left-2 flex h-3.5 w-3.5 items-center justify-center"><span
+                                                    class="hidden" id="opt3" data-state="checked"><svg width="15"
+                                                        height="15" viewBox="0 0 15 15" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg" class="h-4 w-4">
+                                                        <path
+                                                            d="M11.4669 3.72684C11.7558 3.91574 11.8369 4.30308 11.648 4.59198L7.39799 11.092C7.29783 11.2452 7.13556 11.3467 6.95402 11.3699C6.77247 11.3931 6.58989 11.3355 6.45446 11.2124L3.70446 8.71241C3.44905 8.48022 3.43023 8.08494 3.66242 7.82953C3.89461 7.57412 4.28989 7.55529 4.5453 7.78749L6.75292 9.79441L10.6018 3.90792C10.7907 3.61902 11.178 3.53795 11.4669 3.72684Z"
+                                                            fill="currentColor" fill-rule="evenodd" clip-rule="evenodd">
+                                                        </path>
+                                                    </svg></span></span>Inspiration</div>
+                                    </li>
+
+                                    <li id="listbox-option-0" role="option">
+                                        <div role="separator" aria-orientation="horizontal"
+                                            class="-mx-1 my-1 h-px bg-muted"></div>
+                                        <div role="menuitem"
+                                            class="relative flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none  focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50"
+                                            tabindex="-1" data-orientation="vertical" data-radix-collection-item=""><svg
+                                                width="15" height="15" viewBox="0 0 15 15" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg" class="mr-2 h-4 w-4">
+                                                <path
+                                                    d="M8 2.75C8 2.47386 7.77614 2.25 7.5 2.25C7.22386 2.25 7 2.47386 7 2.75V7H2.75C2.47386 7 2.25 7.22386 2.25 7.5C2.25 7.77614 2.47386 8 2.75 8H7V12.25C7 12.5261 7.22386 12.75 7.5 12.75C7.77614 12.75 8 12.5261 8 12.25V8H12.25C12.5261 8 12.75 7.77614 12.75 7.5C12.75 7.22386 12.5261 7 12.25 7H8V2.75Z"
+                                                    fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path>
+                                            </svg> Create List</div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="p-6 pt-0">
+                            <div class="flex space-x-4 text-sm text-[#71717a]">
+                                <div class="flex items-center"><svg width="15" height="15" viewBox="0 0 15 15"
+                                        fill="none" xmlns="http://www.w3.org/2000/svg"
+                                        class="mr-1 h-3 w-3 fill-sky-400 text-sky-400">
+                                        <path
+                                            d="M0.877075 7.49991C0.877075 3.84222 3.84222 0.877075 7.49991 0.877075C11.1576 0.877075 14.1227 3.84222 14.1227 7.49991C14.1227 11.1576 11.1576 14.1227 7.49991 14.1227C3.84222 14.1227 0.877075 11.1576 0.877075 7.49991ZM7.49991 1.82708C4.36689 1.82708 1.82708 4.36689 1.82708 7.49991C1.82708 10.6329 4.36689 13.1727 7.49991 13.1727C10.6329 13.1727 13.1727 10.6329 13.1727 7.49991C13.1727 4.36689 10.6329 1.82708 7.49991 1.82708Z"
+                                            fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path>
+                                    </svg>TypeScript</div>
+                                <div class="flex items-center"><svg width="15" height="15" viewBox="0 0 15 15"
+                                        fill="none" xmlns="http://www.w3.org/2000/svg" class="mr-1 h-3 w-3">
+                                        <path
+                                            d="M6.97942 1.25171L6.9585 1.30199L5.58662 4.60039C5.54342 4.70426 5.44573 4.77523 5.3336 4.78422L1.7727 5.0697L1.71841 5.07405L1.38687 5.10063L1.08608 5.12475C0.820085 5.14607 0.712228 5.47802 0.914889 5.65162L1.14406 5.84793L1.39666 6.06431L1.43802 6.09974L4.15105 8.42374C4.23648 8.49692 4.2738 8.61176 4.24769 8.72118L3.41882 12.196L3.40618 12.249L3.32901 12.5725L3.25899 12.866C3.19708 13.1256 3.47945 13.3308 3.70718 13.1917L3.9647 13.0344L4.24854 12.861L4.29502 12.8326L7.34365 10.9705C7.43965 10.9119 7.5604 10.9119 7.6564 10.9705L10.705 12.8326L10.7515 12.861L11.0354 13.0344L11.2929 13.1917C11.5206 13.3308 11.803 13.1256 11.7411 12.866L11.671 12.5725L11.5939 12.249L11.5812 12.196L10.7524 8.72118C10.7263 8.61176 10.7636 8.49692 10.849 8.42374L13.562 6.09974L13.6034 6.06431L13.856 5.84793L14.0852 5.65162C14.2878 5.47802 14.18 5.14607 13.914 5.12475L13.6132 5.10063L13.2816 5.07405L13.2274 5.0697L9.66645 4.78422C9.55432 4.77523 9.45663 4.70426 9.41343 4.60039L8.04155 1.30199L8.02064 1.25171L7.89291 0.944609L7.77702 0.665992C7.67454 0.419604 7.32551 0.419604 7.22303 0.665992L7.10715 0.944609L6.97942 1.25171ZM7.50003 2.60397L6.50994 4.98442C6.32273 5.43453 5.89944 5.74207 5.41351 5.78103L2.84361 5.98705L4.8016 7.66428C5.17183 7.98142 5.33351 8.47903 5.2204 8.95321L4.62221 11.461L6.8224 10.1171C7.23842 9.86302 7.76164 9.86302 8.17766 10.1171L10.3778 11.461L9.77965 8.95321C9.66654 8.47903 9.82822 7.98142 10.1984 7.66428L12.1564 5.98705L9.58654 5.78103C9.10061 5.74207 8.67732 5.43453 8.49011 4.98442L7.50003 2.60397Z"
+                                            fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path>
+                                    </svg>20k</div>
+                                <div>Updated April 2023</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ************************* chadch Component End *********************** -->
+
+
+                <!-- ************************* Cookie Component Start *********************** -->
+
+                <div class="flex items-center justify-center [&amp;>div]:w-full">
+                    <div class="rounded-xl border dark:border-darkborder bg-card text-card-foreground dark:text-darktext shadow">
+                        <div class="flex flex-col space-y-1.5 p-6">
+                            <h3 class="font-semibold leading-none tracking-tight">Cookie Settings</h3>
+                            <p class="text-sm text-[#71717a]">Manage your cookie settings here.</p>
+                        </div>
+                        <div class="p-6 pt-0 grid gap-6">
+                            <div class="flex items-center justify-between w-full space-x-2"><label
+                                    class="text-sm w-4/5 font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 flex flex-col space-y-1"
+                                    for="necessary"><span>Strictly Necessary</span><span
+                                        class="font-normal leading-snug text-[#71717a]">These cookies are
+                                        essential in order to use the website and use its
+                                        features.</span></label>
+                                <input type="checkbox" class="peer sr-only  opacity-0" id="toggle" />
+
+                                <label for="toggle"
+                                    class="relative flex h-6 w-11 cursor-pointer items-center rounded-full bg-gray-200 px-0.5 outline-gray-200  before:h-5 before:w-5 before:rounded-full before:bg-white before:dark:bg-darkbackground peer-checked:dark:bg-darktext  before:shadow before:transition-transform before:duration-300 peer-checked:bg-black  dark:text-accent-foreground  dark:bg-accent peer-checked:before:translate-x-full peer-focus-visible:outline peer-focus-visible:outline-offset-2 peer-focus-visible:outline-gray-400 peer-checked:peer-focus-visible:outline-black">
+                                    <span class="sr-only">Enable</span>
+                                </label>
+                            </div>
+                            <div class="flex items-center justify-between w-full space-x-2"><label
+                                    class="text-sm w-4/5 font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 flex flex-col space-y-1"
+                                    for="functional"><span>Functional Cookies</span><span
+                                        class="font-normal leading-snug text-[#71717a]">These cookies allow the
+                                        website to provide personalized functionality.</span></label>
+                                <input type="checkbox" class="peer sr-only opacity-0" id="toggle1" />
+                                <label for="toggle1"
+                                    class="relative flex h-6 w-11 cursor-pointer items-center rounded-full bg-gray-200 px-0.5 outline-gray-200  before:h-5 before:w-5 before:rounded-full before:bg-white before:shadow before:dark:bg-darkbackground peer-checked:dark:bg-darktext  dark:text-accent-foreground  dark:bg-accent  before:transition-transform before:duration-300 peer-checked:bg-black peer-checked:before:translate-x-full peer-focus-visible:outline peer-focus-visible:outline-offset-2 peer-focus-visible:outline-gray-400 peer-checked:peer-focus-visible:outline-black">
+                                    <span class="sr-only">Enable</span>
+                                </label>
+                            </div>
+                            <div class="flex items-center justify-between w-full space-x-2"><label
+                                    class="text-sm w-4/5 font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 flex flex-col space-y-1"
+                                    for="performance"><span>Performance Cookies</span><span
+                                        class="font-normal leading-snug text-[#71717a]">These cookies help to
+                                        improve the performance of the website.</span></label>
+                                <input type="checkbox" class="peer sr-only opacity-0" id="toggle2" />
+                                <label for="toggle2"
+                                    class="relative flex h-6 w-11 cursor-pointer items-center rounded-full bg-gray-200 px-0.5 outline-gray-200  before:h-5 before:w-5 before:rounded-full before:bg-white before:shadow before:dark:bg-darkbackground peer-checked:dark:bg-darktext  dark:text-accent-foreground  dark:bg-accent  before:transition-transform before:duration-300 peer-checked:bg-black peer-checked:before:translate-x-full peer-focus-visible:outline peer-focus-visible:outline-offset-2 peer-focus-visible:outline-gray-400 peer-checked:peer-focus-visible:outline-black">
+                                    <span class="sr-only">Enable</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="flex items-center p-6 pt-0"><button
+                                class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium  focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring  dark:hover:text-accent-foreground  dark:hover:bg-accent disabled:pointer-events-none disabled:opacity-50 border border-input dark:border-darkborder bg-lightbackground dark:bg-darkbackground shadow-sm hover:bg-[#f4f4f5] hover:text-[#18181b] h-9 px-4 py-2 w-full">Save
+                                preferences</button></div>
+                    </div>
+                </div>
+
+                <!-- ************************* Cookie Component End *********************** -->
+
+            </div>
+        </div>
+    </div>
+    <script src="assests/script.js"></script>
+</body>
+
+</html>
